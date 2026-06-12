@@ -43,7 +43,50 @@ ITEM_NAME_TO_ID = {
     "Completing The Mission": 28,
     "Fleeing The Complex": 29,
     "Infiltraiting The Airship":30,
-    "Stealing The Diamond": 31
+    "Stealing The Diamond": 31,
+    "Shield": 32,
+    "Lance": 33,
+    "Flail": 34,
+    "Tow Cable": 35,
+    "Basket": 36,
+    "Rock": 37,
+    "Branch": 38,
+    "Sticky Grenade": 39,
+    "Bubble": 40,
+    "Tunisian Diamond": 41,
+    "Jumble Hoppers": 42,
+    "StDAntiGravityCapFail": 43,
+    "Shrink Ray": 44,
+    "Pick": 45,
+    "Liquidificator": 46,
+    "Penny": 47,
+    "Tranquilizer": 48,
+    "Falcon Punch": 49,
+    "Invisibility Pill": 50,
+    "Wire": 51,
+    "Wormhole Rifle": 52,
+    "Laser Cutter": 53,
+    "Hammer": 54,
+    "Cannon": 55,
+    "Plank": 56,
+    "Cheese": 57,
+    "Rifle": 58,
+    "WW2 Gun": 59,
+    "WW2 Bomb": 60,
+    "WW2 Plane": 61,
+    "Metroid": 62,
+    "Goodball": 63,
+    "Mushroom": 64, #thats awesome that that worked out like that
+    "Division By Zero": 65,
+    "Nuclear Bomb": 66,
+    "Shoop da Whoop": 67,
+    "Giant CCC Robot": 68,
+    "Useless Device": 69,
+    "Really Stupid Idea":70,
+    "Poorly Thought Out Plan":71,
+    "Part 66 of my Henry Stickmin Playthrough":72
+
+        
 }
 
 ID_TO_ITEM_NAME = {v: k for k, v in ITEM_NAME_TO_ID.items()}
@@ -81,7 +124,48 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     "Completing The Mission": ItemClassification.progression,
     "Fleeing The Complex": ItemClassification.progression,
     "Infiltraiting The Airship":ItemClassification.progression,
-    "Stealing The Diamond": ItemClassification.progression
+    "Stealing The Diamond": ItemClassification.progression,
+    "Shield": ItemClassification.progression,
+    "Lance": ItemClassification.progression,
+    "Flail": ItemClassification.progression,
+    "Tow Cable": ItemClassification.progression,
+    "Basket": ItemClassification.progression,
+    "Rock": ItemClassification.progression,
+    "Branch": ItemClassification.progression,
+    "Sticky Grenade": ItemClassification.progression,
+    "Bubble": ItemClassification.progression,
+    "Tunisian Diamond": ItemClassification.progression,
+    "Jumble Hoppers": ItemClassification.progression,
+    "Anti-Gravity Cap": ItemClassification.progression,
+    "Shrink Ray": ItemClassification.progression,
+    "Pick": ItemClassification.progression,
+    "Liquidificator": ItemClassification.progression,
+    "Penny": ItemClassification.progression,
+    "Tranquilizer": ItemClassification.progression,
+    "Falcon Punch": ItemClassification.progression,
+    "Invisibility Pill": ItemClassification.progression,
+    "Wire": ItemClassification.progression,
+    "Wormhole Rifle": ItemClassification.progression,
+    "Laser Cutter": ItemClassification.progression,
+    "Hammer": ItemClassification.progression,
+    "Cannon": ItemClassification.progression,
+    "Plank": ItemClassification.progression,
+    "Cheese": ItemClassification.progression,
+    "Rifle": ItemClassification.progression,
+    "WW2 Gun": ItemClassification.progression,
+    "WW2 Bomb": ItemClassification.progression,
+    "WW2 Plane": ItemClassification.progression,
+    "Metroid": ItemClassification.progression,
+    "Goodball": ItemClassification.progression,
+    "Mushroom": ItemClassification.progression, #thats awesome that that worked out like that
+    "Division By Zero": ItemClassification.progression,
+    "Nuclear Bomb": ItemClassification.progression,
+    "Shoop da Whoop": ItemClassification.progression,
+    "Giant CCC Robot": ItemClassification.progression,
+    "Useless Device": ItemClassification.filler,
+    "Really Stupid Idea": ItemClassification.filler,
+    "Poorly Thought Out Plan":ItemClassification.filler,
+    "Part 66 of my Henry Stickmin Playthrough":ItemClassification.filler,
 }
 
 
@@ -93,12 +177,20 @@ class HenryStickminItem(Item):
 
 def get_random_filler_item_name(world: HenryStickminWorld) -> str:
     
-    fillNum = world.random.randint(0,1)
+    fillNum = world.random.randint(0,6)
     match fillNum:
         case 0:
             return "Distraction"
         case 1:
             return "Obscure Refrence"
+        case 2:
+            return "Useless Device"
+        case 3:
+            return "Really Stupid Idea"
+        case 4:
+            return "Poorly Thought Out Plan"
+        case 5:
+            return "Part 66 of my Henry Stickmin Playthrough"
     
 
 
@@ -122,9 +214,12 @@ def create_all_items(world: HenryStickminWorld) -> None:
 
     if use_BtB(world) or use_EtP(world):
         itempool.append(world.create_item("Money Bag Disguise"))
+        
+
+    if use_BtB(world) or use_EtP(world) or use_StD(world):
         teleporter_item = world.create_item("Teleporter") 
         if world.options.Teleporter_Start == 1:
-            world.push_precollected(teleporter_item)         
+            world.push_precollected(teleporter_item)
 
     if use_EtP(world):
         itempool.append(world.create_item("File"))
@@ -139,7 +234,6 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Parachute"))
         itempool.append(world.create_item("JetPack"))
         itempool.append(world.create_item("Opacitator"))
-        itempool.append(world.create_item("Crowbar"))
         itempool.append(world.create_item("Attorney's Badge"))
         itempool.append(world.create_item("Floor Plans of Bank"))
         itempool.append(world.create_item("Security Footage"))
@@ -148,6 +242,52 @@ def create_all_items(world: HenryStickminWorld) -> None:
             etp_item = world.create_item("Escaping The Prison")
             if world.options.EtP == 1:
                 world.push_precollected(etp_item)
+    
+    if use_EtP(world) or use_StD(world):
+        itempool.append(world.create_item("Crowbar"))
+    
+    if use_StD(world):
+        itempool.append(world.create_item("Shield"))
+        itempool.append(world.create_item("Lance"))
+        itempool.append(world.create_item("Flail"))
+        itempool.append(world.create_item("Tow Cable"))
+        itempool.append(world.create_item("Basket"))
+        itempool.append(world.create_item("Rock"))
+        itempool.append(world.create_item("Branch"))
+        itempool.append(world.create_item("Sticky Grenade"))
+        itempool.append(world.create_item("Bubble"))
+        itempool.append(world.create_item("Tunisian Diamond"))
+        itempool.append(world.create_item("Jumble Hoppers"))
+        itempool.append(world.create_item("Anti-Gravity Cap"))
+        itempool.append(world.create_item("Shrink Ray"))
+        itempool.append(world.create_item("Pick"))
+        itempool.append(world.create_item("Liquidificator"))
+        itempool.append(world.create_item("Penny"))
+        itempool.append(world.create_item("Tranquilizer"))
+        itempool.append(world.create_item("Falcon Punch"))
+        itempool.append(world.create_item("Invisibility Pill"))
+        itempool.append(world.create_item("Wire"))
+        itempool.append(world.create_item("Wormhole Rifle"))
+        itempool.append(world.create_item("Laser Cutter"))
+        itempool.append(world.create_item("Hammer"))
+        itempool.append(world.create_item("Cannon"))
+        itempool.append(world.create_item("Plank"))
+        itempool.append(world.create_item("Cheese"))
+        itempool.append(world.create_item("Rifle"))
+        itempool.append(world.create_item("WW2 Gun"))
+        itempool.append(world.create_item("WW2 Bomb"))
+        itempool.append(world.create_item("WW2 Plane"))
+        itempool.append(world.create_item("Metroid"))
+        itempool.append(world.create_item("Goodball"))
+        itempool.append(world.create_item("Mushroom"))
+        itempool.append(world.create_item("Division By Zero"))
+        itempool.append(world.create_item("Nuclear Bomb"))
+        itempool.append(world.create_item("Shoop da Whoop"))
+        itempool.append(world.create_item("Giant CCC Robot"))
+        if world.options.StD != 3: 
+            std_item = world.create_item("Stealing The Diamond")
+            if world.options.StD == 1:
+                world.push_precollected(std_item)
 
     number_of_items = len(itempool)
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))

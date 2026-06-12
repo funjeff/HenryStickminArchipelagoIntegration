@@ -36,6 +36,22 @@ class EtP(Choice):
     option_yes_vanilla = 3
     default = 1
 
+class StD(Choice):
+    """
+    Include Henry Stickmin Stealing the Diamond in the randomization
+    0 - Don't include Stealing the Diamond
+    1 - include Stealing the Diamond its avilable from the start
+    2 - include Stealing the Diamond its unlocked when you receve it from an archipelago check
+    3 - include Stealing the Diamond its unlocked when you complete any rank in Escaping the Prison
+
+    """
+    display_name = "Stealing the Diamond"
+    option_no = 0
+    option_yes_open_world = 1
+    option_yes_multiworld = 2
+    option_yes_vanilla = 3
+    default = 1
+
 
 class Goal(Choice):
     """
@@ -71,6 +87,7 @@ class Teleporter_Start(Choice):
 class HenryStickminOptions(PerGameCommonOptions):
     BtB: BtB
     EtP: EtP
+    StD: StD
     Goal: Goal
     Required_Ranks: Required_Ranks
     Teleporter_Start: Teleporter_Start

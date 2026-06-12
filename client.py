@@ -11,6 +11,7 @@ from NetUtils import decode, encode, NetworkItem, NetworkPlayer, ClientStatus
 from MultiServer import Endpoint
 from CommonClient import CommonContext, gui_enabled, ClientCommandProcessor, logger, get_base_parser
 from .henry_to_arc_names import *
+from .henryHelpers import *
 from pathlib import Path
 
 DEBUG = False
@@ -21,6 +22,10 @@ class HenryCommandProcessor(ClientCommandProcessor):
         self.ctx.save_path = path
         create_comunication_files(self.ctx)
         logger.info(f"Henry Stickmin Save Path set to " + path)
+    
+    def _cmd_deathlink(self):
+        """Turn on or off deathlink, nothing happens to you when your friends die so feel free to turn this on if you hate them"""
+        self.ctx.deathlink = not self.ctx.deathlink
 
 class HenryContext(CommonContext):
     game = "The Henry Stickmin Collection"
@@ -29,6 +34,7 @@ class HenryContext(CommonContext):
     command_processor = HenryCommandProcessor
     items_handling = 0b111
     henryslotdata = None
+    deathlink = False
 
     def on_package(self, cmd: str, args: dict):
         if cmd == "Connected":
@@ -61,9 +67,6 @@ class HenryContext(CommonContext):
         await self.get_username()
         await self.send_connect(game="The Henry Stickmin Collection")
         await self.get_save_path()
-
-
-
 
 
 async def henry_control_loop(ctx: HenryContext):
@@ -137,15 +140,18 @@ async def on_locations_checked(ctx, locations):
         await ctx.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
 
     await ctx.check_locations(locIds)
-    deathlinkReason = get_henry_deathlink_reason(locations)
-    if (deathlinkReason != "None"):
+    deathlinkReason = get_henry_deathlink_reason(locations,ctx.auth)
+    if (deathlinkReason != "None" and ctx.deathlink):
         await ctx.send_death(deathlinkReason)
 
 def add_vanila_progression_items(ctx,henry_item_names):
     final_item_names = henry_item_names
 
-    if (henry_name_to_arc_id(["The Story Begins"])[0] in ctx.locations_checked and ctx.henryslotdata['EtP'] == 3):
+    if (found_BtB_rank() and ctx.henryslotdata['EtP'] == 3):
         final_item_names.append("Escaping The Prison")
+
+    if (found_EtP_rank() and ctx.henryslotdata['StD'] == 3):
+        final_item_names.append("Stealing The Diamond")
     
     return final_item_names
 
