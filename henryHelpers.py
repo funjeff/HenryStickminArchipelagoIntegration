@@ -22,6 +22,12 @@ def use_StD(world):
         return True
     return False
 
+def use_ItA(world):
+    if world.options.ItA == 1 or world.options.ItA == 2 or world.options.ItA == 3:
+        return True
+    return False   
+
+
 def get_BtB_rank_rules():
     return [Has("Story Begins Event Item")]
 
@@ -30,6 +36,9 @@ def get_EtP_rank_rules():
 
 def get_StD_rank_rules():
     return[Has("Unseen Burglar Event Item"),Has("Intruder On A Scooter Event Item"),Has("Just Plain Epic Event Item")]
+
+def get_ItA_rank_rules():
+    return[Has("Relentless Bounty Hunter Event Item"),Has("Government Supported Private Investigator Event Item"),Has("Rapidly Promoted Executive Event Item"),Has("Pure Blooded Thief Event Item")]
 
 def get_BtB_rank_event_item_names():
     return ["Story Begins Event Item"]
@@ -40,28 +49,20 @@ def get_EtP_rank_event_item_names():
 def get_StD_rank_event_item_names():
     return["Unseen Burglar Event Item","Intruder On A Scooter Event Item","Just Plain Epic Event Item"]
 
+def get_ItA_rank_event_item_names():
+    return["Relentless Bounty Hunter Event Item","Government Supported Private Investigator Event Item","Rapidly Promoted Executive Event Item","Pure Blooded Thief Event Item"]
+
+
+
 
 def found_BtB_rank(ctx):
-    if henry_name_to_arc_id(["The Story Begins"])[0] in ctx.locations_checked:
-        return True
-    return False
+    return get_num_BtB_ranks_achived(ctx) != 0
 
 def found_EtP_rank(ctx):
-    if henry_name_to_arc_id(["Lawyered Up"])[0] in ctx.locations_checked:
-        return True
-    if henry_name_to_arc_id(["Baddass Bust Out"])[0] in ctx.locations_checked:
-        return True
-    if henry_name_to_arc_id(["Sneaky Escapist"])[0] in ctx.locations_checked:
-        return True
-    
-    return False
+    return get_num_EtP_ranks_achived(ctx) != 0
 
 def found_StD_rank(ctx):
-    if henry_name_to_arc_id(["StD: Intruder On A Scooter"])[0] in ctx.locations_checked:
-        return True
-    if henry_name_to_arc_id(["Just Plain Epic"])[0] in ctx.locations_checked:
-        return True
-    if henry_name_to_arc_id(["Unseen Burglar"])[0] in ctx.locations_checked:
-        return True
-    
-    return False
+    return get_num_StD_ranks_achived(ctx) != 0
+
+def found_ItA_rank(ctx):
+    return get_num_ItA_ranks_achived(ctx) != 0

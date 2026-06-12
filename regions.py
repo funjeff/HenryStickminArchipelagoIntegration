@@ -54,6 +54,34 @@ def create_all_regions(world: HenryStickminWorld) -> None:
         stdCenterForChaosContainment = Region("stdCenterForChaosContainment", world.player, world.multiworld)
         stdRegions = [stdLookout, stdDiamondExhibitScooter, stdPoliceChaseCar,stdPoliceChaseHeli,stdBridge,stdRooftop,stdCatwalk,stdDiamondExhibit,stdStorageRoom,stdBackdoor,stdWW2Exhibit,stdRetroExhibit,stdCenterForChaosContainment]
         regions.extend(stdRegions)
+    
+    if use_ItA(world):
+        itaHelicopterDoor = Region("itaHelicopterDoor", world.player, world.multiworld)
+        
+        itaBridge = Region("itaBridge", world.player, world.multiworld)
+        itaWarehouse = Region("itaWarehouse", world.player, world.multiworld)
+        itaQuartersHallway = Region("itaQuartersHallway", world.player, world.multiworld)
+        itaBrigDamaged = Region("itaBrigDamaged", world.player, world.multiworld)
+        itaShowdownFF = Region("itaShowdownFF", world.player, world.multiworld)
+        itaShowdownEB = Region("itaShowdownEB", world.player, world.multiworld)
+        itaVentalationShaft = Region("itaVentalationShaft", world.player, world.multiworld)
+        itaCargoBayHostage = Region("itaCargoBayHostage", world.player, world.multiworld)
+
+        itaViewingPlatform = Region("itaViewingPlatform", world.player, world.multiworld)
+        itaVault = Region("itaVault", world.player, world.multiworld)
+        itaOuterWing = Region("itaOuterWing", world.player, world.multiworld)
+        itaCenterForChaosContainment = Region("itaCenterForChaosContainment", world.player, world.multiworld)
+
+        itaAirshipTopside = Region("itaAirshipTopside", world.player, world.multiworld)
+        itaEngineRoomVaultSide = Region("itaEngineRoomVaultSide", world.player, world.multiworld)
+        itaEngineVents = Region("itaEngineVents", world.player, world.multiworld)
+        itaRecordsLibrary = Region("itaRecordsLibrary", world.player, world.multiworld)
+        itaAirDuct = Region("itaAirDuct", world.player, world.multiworld)
+
+        itaCargoBay = Region("itaCargoBay", world.player, world.multiworld)
+        itaRegions = [itaHelicopterDoor,itaBridge,itaWarehouse,itaQuartersHallway,itaBrigDamaged,itaShowdownFF,itaShowdownEB,itaVentalationShaft,itaCargoBayHostage,itaViewingPlatform,itaVault,itaOuterWing,itaCenterForChaosContainment,itaAirshipTopside,itaEngineRoomVaultSide,itaEngineVents,itaRecordsLibrary,itaAirDuct,itaCargoBay]
+        regions.extend(itaRegions)
+    
 
     # We now need to add these regions to multiworld.regions so that AP knows about their existence.
     world.multiworld.regions += regions
@@ -116,6 +144,56 @@ def connect_regions(world: HenryStickminWorld) -> None:
         stdLookout.connect(stdWW2Exhibit, "Pick")
         stdWW2Exhibit.connect(stdRetroExhibit,"Plane")
         stdRetroExhibit.connect(stdCenterForChaosContainment,"Mushroom")
+
+    if use_ItA(world):
+        itaHelicopterDoor = world.get_region("itaHelicopterDoor")
+        
+        itaBridge = world.get_region("itaBridge")
+        itaWarehouse = world.get_region("itaWarehouse")
+        itaQuartersHallway = world.get_region("itaQuartersHallway")
+        itaBrigDamaged = world.get_region("itaBrigDamaged")
+        itaShowdownFF = world.get_region("itaShowdownFF")
+        itaShowdownEB = world.get_region("itaShowdownEB")
+        itaVentalationShaft = world.get_region("itaVentalationShaft")
+        itaCargoBayHostage = world.get_region("itaCargoBayHostage")
+
+        itaViewingPlatform = world.get_region("itaViewingPlatform")
+        itaVault = world.get_region("itaVault")
+        itaOuterWing = world.get_region("itaOuterWing")
+        itaCenterForChaosContainment = world.get_region("itaCenterForChaosContainment")
+
+        itaAirshipTopside = world.get_region("itaAirshipTopside")
+        itaEngineRoomVaultSide = world.get_region("itaEngineRoomVaultSide")
+        itaEngineVents = world.get_region("itaEngineVents")
+        itaRecordsLibrary = world.get_region("itaRecordsLibrary")
+        itaAirDuct = world.get_region("itaAirDuct")
+
+        itaCargoBay = world.get_region("itaCargoBay")
+
+        chapterSelect.connect(itaHelicopterDoor, "ita_entrance")
+
+        itaHelicopterDoor.connect(itaBridge, "Cannon Ball")
+        itaBridge.connect(itaWarehouse, "Cannon Ball Chair")
+        itaWarehouse.connect(itaQuartersHallway, "Cannon Ball Eject Button")
+        itaQuartersHallway.connect(itaBrigDamaged, "Beans")
+        itaBrigDamaged.connect(itaShowdownFF, "DirkandRocketLauncher")
+        itaBrigDamaged.connect(itaShowdownEB, "Yo-YoandRocketLauncher")
+        itaShowdownFF.connect(itaVentalationShaft, "Chainsaw")
+        itaShowdownEB.connect(itaVentalationShaft, "Multi bottle rocket")
+        itaVentalationShaft.connect(itaCargoBayHostage, "Glider")
+
+        itaHelicopterDoor.connect(itaViewingPlatform, "Grapple Gun")
+        itaVault.connect(itaOuterWing, "Paperizor")
+        itaOuterWing.connect(itaCenterForChaosContainment, "Armor")
+
+        itaHelicopterDoor.connect(itaAirshipTopside, "Earpiece")
+        itaAirshipTopside.connect(itaEngineRoomVaultSide, "Glue")
+        itaEngineRoomVaultSide.connect(itaEngineVents, "Robo Helper")
+        itaEngineVents.connect(itaRecordsLibrary, "Bone Melt")
+        itaRecordsLibrary.connect(itaAirDuct, "Spider On A Stick")
+
+        itaHelicopterDoor.connect(itaCargoBay, "Sticky Hand")
+
         
         
 

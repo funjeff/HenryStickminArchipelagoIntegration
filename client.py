@@ -152,6 +152,9 @@ def add_vanila_progression_items(ctx,henry_item_names):
 
     if (found_EtP_rank() and ctx.henryslotdata['StD'] == 3):
         final_item_names.append("Stealing The Diamond")
+
+    if (found_StD_rank() and ctx.henryslotdata['ItA'] == 3):
+        final_item_names.append("Infiltraiting The Airship")
     
     return final_item_names
 

@@ -84,8 +84,71 @@ LOCATION_NAME_TO_ID = {
     "StD Bridge: Do Something Fail" : 67,
     "StD Bridge: Drive Fail" : 68,
     "StD Bridge: Bribe Fail" : 69,
-    "StD: Intruder On A Scooter" : 70
-
+    "StD: Intruder On A Scooter" : 70,
+    "ItA Cargo Bay: Zero-Point Energy Fail" : 71,
+    "ItA Cargo Bay: Ball 'n' Chain Fail" : 72,
+    "ItA Viewing Platform: Bomb Fail" : 73,
+    "ItA Viewing Platform: Joy Buzzer Fail" : 74,
+    "ItA Viewing Platform: Expanding Foam Fail" : 75,
+    "ItA Survalliance Room: Computer Fail" : 76,
+    "ItA Survalliance Room: Elevator Fail" : 76,
+    "ItA Engine Room Records Side: Stretch Chewies Fail" : 77,
+    "ItA Engine Room Records Side: Magic Pencil Fail" : 78,
+    "ItA Engine Room Records Side: Teleporter Fail" : 79,
+    "ItA Brig: Hack Fail" : 80,
+    "ItA Brig: Wizard Magic Fail" : 81,
+    "ItA Brig: Retroglove Fail" : 82,
+    "ItA Vault: Gravity Manipulator Fail" : 83,
+    "ItA Vault: Clawpack Fail" : 84,
+    "ItA Outer Wing: Umbrella Fail" : 85,
+    "ItA Outer Wing: Propane Tank Fail" : 86,
+    "ItA Outer Wing: Shell Fail" : 87,
+    "ItA Center For Chaos Containment: D.E.B Fail" : 88,
+    "ItA Center For Chaos Containment: L. Cut mk. II Fail" : 89,
+    "ItA Center For Chaos Containment: Gaben Fail" : 90,
+    "ItA: Pure Blooded Thief":91,
+    "ItA Airship Topside: Acid Fail":92,
+    "ItA Airship Topside: Knock Fail":93,
+    "ItA Airship Topside: C4 Fail":94,
+    "ItA Boardroom: Disguise Fail":95,
+    "ItA Boardroom: Transdimensionalizer Fail":96,
+    "ItA Engine Room Vault Side: Charles Fail":97,
+    "ItA Engine Room Vault Side: Gravity Bubble Fail":98,
+    "ItA Engine Room Vault Side: Platform Fail":99,
+    "ItA Engine Vents: Gatling Gun Fail":100,
+    "ItA Engine Vents: Mind Control Fail":101,
+    "ItA Engine Vents: Remote Access Fail":102,
+    "ItA Records Library: Ninja Star Fail":103,
+    "ItA Records Library: Duck Propeller Fail":104,
+    "ItA Records Library: Falcon Kick Fail":105,
+    "ItA Air Duct: Don't Need Help Fail":106,
+    "ItA Air Duct: Shut off Power Fail":107,
+    "ItA Cargo Bay Evidence: Banana Bomb Fail":108,
+    "ItA Cargo Bay Evidence: Sleeping Gas Fail":109,
+    "ItA Cargo Bay Evidence: Flashbang Fail":110,
+    "ItA: Government Supported Private Investigator":111,
+    "ItA Bridge: Laser Fail":112,
+    "ItA Bridge: Thruster Fail":113,
+    "ItA Warehouse: Spikes Fail":114,
+    "ItA Warehouse: COAL-ossal Fail":115,
+    "ItA Warehouse: Boost Fail":116,
+    "ItA Quarters Hallway: Warp Fail":117,
+    "ItA Quarters Hallway: Metal Fist Fail":118,
+    "ItA Quarters Hallway: Doors Fail":119,
+    "ItA Brig Damaged: Robo Pants Fail":120,
+    "ItA Brig Damaged: Metal Bend Fail":121,
+    "ItA Yo-Yo Fight: Bash Fail":122,
+    "ItA Yo-Yo Fight: PSI Fail":123,
+    "ItA Yo-Yo Fight: Defend Fail":124,
+    "ItA Dirk Fight:Fight Fail":125,
+    "ItA Dirk Fight: Blitz Fail":126,
+    "ItA Dirk Fight: Magic Fail":127,
+    "ItA Ventalation Shaft: JetBoots Fail":128,
+    "ItA Ventalation Shaft: Beef Up Fail":129,
+    "ItA Cargo Bay Hostage: Parachute Fail":130,
+    "ItA Cargo Bay Hostage: Missile Fail":131,
+    "ItA: Rapidly Promoted Executive":132,
+    "ItA: Relentlesss Bounty Hunter":133
 }
 
 
@@ -197,6 +260,78 @@ def create_regular_locations(world: HenryStickminWorld) -> None:
         stdCenterForChaosContainmentLocations = get_location_names_with_ids(["StD Center For Chaos Containment: Nuclear Bomb Fail","StD Center For Chaos Containment: Divide by Zero Fail","StD Center For Chaos Containment: Shoop da Whoop Fail","StD: Just Plain Epic"])
         stdCenterForChaosContainment.add_locations(stdCenterForChaosContainmentLocations)
 
+    if (use_ItA(world)):
+        itaCargoBay = world.get_region("itaCargoBay")
+        itaCargoBayLocations = get_location_names_with_ids(["ItA Cargo Bay: Zero-Point Energy Fail","ItA Cargo Bay: Ball 'n' Chain Fail"])
+        itaCargoBay.add_locations(itaCargoBayLocations)
+
+        itaViewingPlatform = world.get_region("itaViewingPlatform")
+        itaViewingPlatformLocations = get_location_names_with_ids(["ItA Viewing Platform: Bomb Fail","ItA Viewing Platform: Joy Buzzer Fail","ItA Viewing Platform: Expanding Foam Fail, ItA Survalliance Room: Computer Fail","ItA Survalliance Room: Elevator Fail, ItA Engine Room Records Side: Stretch Chewies Fail","ItA Engine Room Records Side: Magic Pencil Fail","ItA Engine Room Records Side: Teleporter Fail","ItA Brig: Hack Fail","ItA Brig: Wizard Magic Fail","ItA Brig: Retroglove Fail"])
+        itaViewingPlatform.add_locations(itaViewingPlatformLocations)
+
+        itaVault = world.get_region("itaVault")
+        itaVaultLocations = get_location_names_with_ids(["ItA Vault: Gravity Manipulator Fail","ItA Vault: Clawpack Fail"])
+        itaVault.add_locations(itaVaultLocations)
+
+        itaOuterWing = world.get_region("itaOuterWing")
+        itaOuterWingLocations = get_location_names_with_ids(["ItA Outer Wing: Umbrella Fail","ItA Outer Wing: Propane Tank Fail","ItA Outer Wing: Shell Fail"])
+        itaOuterWing.add_locations(itaOuterWingLocations)
+
+        itaCenterForChaosContainment = world.get_region("itaCenterForChaosContainment")
+        itaCenterForChaosContainmentLocations = get_location_names_with_ids(["ItA Center For Chaos Containment: D.E.B Fail","ItA Center For Chaos Containment: L. Cut mk. II Fail","ItA Center For Chaos Containment: Gaben Fail","ItA: Pure Blooded Thief"])
+        itaCenterForChaosContainment.add_locations(itaCenterForChaosContainmentLocations)
+
+        itaAirshipTopside = world.get_region("itaAirshipTopside")
+        itaAirshipTopsideLocations = get_location_names_with_ids(["ItA Airship Topside: Acid Fail","ItA Airship Topside: Knock Fail","ItA Airship Topside: C4 Fail","ItA Boardroom: Disguise Fail","ItA Boardroom: Transdimensionalizer Fail"])
+        itaAirshipTopside.add_locations(itaAirshipTopsideLocations)
+
+        itaEngineRoomVaultSide = world.get_region("itaEngineRoomVaultSide")
+        itaEngineRoomVaultSideLocations = get_location_names_with_ids(["ItA Engine Room Vault Side: Charles Fail","ItA Engine Room Vault Side: Gravity Bubble Fail","ItA Engine Room Vault Side: Platform Fail"])
+        itaEngineRoomVaultSide.add_locations(itaEngineRoomVaultSideLocations)
+
+        itaEngineVents = world.get_region("itaEngineVents")
+        itaEngineVentsLocations = get_location_names_with_ids(["ItA Engine Vents: Gatling Gun Fail","ItA Engine Vents: Mind Control Fail","ItA Engine Vents: Remote Access Fail"])
+        itaEngineVents.add_locations(itaEngineVentsLocations)
+
+        itaRecordsLibrary = world.get_region("itaRecordsLibrary")
+        itaRecordsLibraryLocations = get_location_names_with_ids(["ItA Records Library: Ninja Star Fail","ItA Records Library: Duck Propeller Fail","ItA Records Library: Falcon Kick Fail"])
+        itaRecordsLibrary.add_locations(itaRecordsLibraryLocations)
+
+        itaAirDuct = world.get_region("itaAirDuct")
+        itaAirDuctLocations = get_location_names_with_ids(["ItA Air Duct: Don't Need Help Fail","ItA Air Duct: Shut off Power Fail","ItA Cargo Bay Evidence: Banana Bomb Fail","ItA Cargo Bay Evidence: Sleeping Gas Fail","ItA Cargo Bay Evidence: Flashbang Fail","ItA: Government Supported Private Investigator"])
+        itaAirDuct.add_locations(itaAirDuctLocations)
+
+        itaBridge = world.get_region("itaBridge")
+        itaBridgeLocations = get_location_names_with_ids(["ItA Bridge: Laser Fail","ItA Bridge: Thruster Fail"])
+        itaBridge.add_locations(itaBridgeLocations)
+
+        itaWarehouse = world.get_region("itaWarehouse")
+        itaWarehouseLocations = get_location_names_with_ids(["ItA Warehouse: Spikes Fail","ItA Warehouse: COAL-ossal Fail","ItA Warehouse: Boost Fail"])
+        itaWarehouse.add_locations(itaWarehouseLocations)
+
+        itaQuartersHallway = world.get_region("itaQuartersHallway")
+        itaQuartersHallwayLocations = get_location_names_with_ids(["ItA Quarters Hallway: Warp Fail","ItA Quarters Hallway: Metal Fist Fail","ItA Quarters Hallway: Doors Fail"])
+        itaQuartersHallway.add_locations(itaQuartersHallwayLocations)
+                                                                             
+        itaBrigDamaged = world.get_region("itaBrigDamaged")
+        itaBrigDamagedLocations = get_location_names_with_ids(["ItA Brig Damaged: Robo Pants Fail","ItA Brig Damaged: Metal Bend Fail"])
+        itaBrigDamaged.add_locations(itaBrigDamagedLocations)
+
+        itaShowdownFF = world.get_region("itaShowdownFF")
+        itaShowdownFFLocations = get_location_names_with_ids(["ItA Dirk Fight:Fight Fail","ItA Dirk Fight: Blitz Fail","ItA Dirk Fight: Magic Fail"])
+        itaShowdownFF.add_locations(itaShowdownFFLocations)
+
+        itaShowdownEB = world.get_region("itaShowdownEB")
+        itaShowdownEBLocations = get_location_names_with_ids(["ItA Yo-Yo Fight: Bash Fail","ItA Yo-Yo Fight: PSI Fail","ItA Yo-Yo Fight: Defend Fail"])
+        itaShowdownEB.add_locations(itaShowdownEBLocations)
+
+        itaVentalationShaft = world.get_region("itaVentalationShaft")
+        itaVentalationShaftLocations = get_location_names_with_ids(["ItA Ventalation Shaft: JetBoots Fail","ItA Ventalation Shaft: Beef Up Fail"])
+        itaVentalationShaft.add_locations(itaVentalationShaftLocations)
+
+        itaCargoBayHostage = world.get_region("itaCargoBayHostage")
+        itaCargoBayHostageLocations = get_location_names_with_ids(["ItA Cargo Bay Hostage: Parachute Fail","ItA Cargo Bay Hostage: Missile Fail","ItA: Rapidly Promoted Executive","ItA: Relentlesss Bounty Hunter"])
+        itaCargoBayHostage.add_locations(itaCargoBayHostageLocations)
 
 
 def create_events(world: HenryStickminWorld) -> None:
@@ -217,6 +352,9 @@ def create_events(world: HenryStickminWorld) -> None:
     stdBackdoor = world.get_region("stdBackdoor")
     stdCenterForChaosContainment = world.get_region("stdCenterForChaosContainment")
     stdBridge = world.get_region("stdBridge")
+    itaCargoBayHostage = world.get_region("itaCargoBayHostage")
+    itaCenterForChaosContainment = world.get_region("itaCenterForChaosContainment")
+    itaAirDuct = world.get_region("itaAirDuct")
 
     # Copy of rank locations as event locations to use for goal checking
     if (use_BtB(world)):
@@ -270,6 +408,34 @@ def create_events(world: HenryStickminWorld) -> None:
 
         just_plain_epic_event_item = HenryStickminItem("Just Plain Epic Event Item", ItemClassification.progression, None, world.player)
         just_plain_epic_event.place_locked_item(just_plain_epic_event_item)
+    
+    if (use_ItA(world)):
+        pure_blooded_thief_event = HenryStickminLocation(world.player, "Pure Blooded Thief Event", None, itaCenterForChaosContainment)
+        itaCenterForChaosContainment.locations.append(pure_blooded_thief_event)
+        world.set_rule(pure_blooded_thief_event,Has("Prototype Disk"))
 
+        rapidly_promoted_executive_event = HenryStickminLocation(world.player, "Rapidly Promoted Executive Event", None, itaCargoBayHostage)
+        itaCargoBayHostage.locations.append(rapidly_promoted_executive_event)
+        world.set_rule(rapidly_promoted_executive_event,Has("Dummies"))
 
-    pass
+        relentless_bounty_hunter_event = HenryStickminLocation(world.player, "Relentless Bounty Hunter Event", None, itaCargoBayHostage)
+        itaCargoBayHostage.locations.append(relentless_bounty_hunter_event)
+        world.set_rule(relentless_bounty_hunter_event,Has("Tank"))
+
+        government_supported_private_investigator_event = HenryStickminLocation(world.player, "Government Supported Private Investigator Event", None, itaAirDuct)
+        itaAirDuct.locations.append(government_supported_private_investigator_event)
+        world.set_rule(government_supported_private_investigator_event,Has("Force Gun"))
+
+        pure_blooded_thief_event_item = HenryStickminItem("Pure Blooded Thief Event Item", ItemClassification.progression, None, world.player)
+        pure_blooded_thief_event.place_locked_item(pure_blooded_thief_event_item)
+
+        rapidly_promoted_executive_event_item = HenryStickminItem("Rapidly Promoted Executive Event Item", ItemClassification.progression, None, world.player)
+        rapidly_promoted_executive_event.place_locked_item(rapidly_promoted_executive_event_item)
+
+        relentless_bounty_hunter_event_item = HenryStickminItem("Relentless Bounty Hunter Event Item", ItemClassification.progression, None, world.player)
+        relentless_bounty_hunter_event.place_locked_item(relentless_bounty_hunter_event_item)
+
+        government_supported_private_investigator_event_item = HenryStickminItem("Government Supported Private Investigator Event Item", ItemClassification.progression, None, world.player)
+        government_supported_private_investigator_event.place_locked_item(government_supported_private_investigator_event_item)
+    
+    

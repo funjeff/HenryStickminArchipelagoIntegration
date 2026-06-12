@@ -52,6 +52,22 @@ class StD(Choice):
     option_yes_vanilla = 3
     default = 1
 
+class ItA(Choice):
+    """
+    Include Henry Stickmin Infiltrating the Airship in the randomization
+    0 - Don't include Infiltrating the Airship
+    1 - include Infiltrating the Airship its avilable from the start
+    2 - include Infiltrating the Airship its unlocked when you receve it from an archipelago check
+    3 - include Infiltrating the Airship its unlocked when you complete any rank in Stealing the Diamond
+
+    """
+    display_name = "Infiltrating the Airship"
+    option_no = 0
+    option_yes_open_world = 1
+    option_yes_multiworld = 2
+    option_yes_vanilla = 3
+    default = 1
+
 
 class Goal(Choice):
     """
@@ -88,6 +104,7 @@ class HenryStickminOptions(PerGameCommonOptions):
     BtB: BtB
     EtP: EtP
     StD: StD
+    ItA: ItA
     Goal: Goal
     Required_Ranks: Required_Ranks
     Teleporter_Start: Teleporter_Start

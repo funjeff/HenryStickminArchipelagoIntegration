@@ -68,7 +68,71 @@ HENRY_NAME_TO_LOC_NAME = {
     "std_timed6miss":"StD Bridge: Do Something Fail",
     "std_timed6drive":"StD Bridge: Drive Fail",
     "std_timed6bribe":"StD Bridge: Bribe Fail",
-    "Intruder On A Scooter":"StD: Intruder On A Scooter"
+    "Intruder On A Scooter":"StD: Intruder On A Scooter",
+    "ItA_zpe":"ItA Cargo Bay: Zero-Point Energy Fail",
+    "ItA_ballnchain":"ItA Cargo Bay: Ball 'n' Chain Fail",
+    "ItA_bomb":"ItA Viewing Platform: Bomb Fail",
+    "ItA_joybuzzer":"ItA Viewing Platform: Joy Buzzer Fail",
+    "ItA_expandingfoam":"ItA Viewing Platform: Expanding Foam Fail",
+    "ItA_computer":"ItA Survalliance Room: Computer Fail",
+    "ItA_elevator":"ItA Survalliance Room: Elevator Fail",
+    "ItA_stretch":"ItA Engine Room Records Side: Stretch Chewies Fail",
+    "ItA_pencil":"ItA Engine Room Records Side: Magic Pencil Fail",
+    "ItA_teleporter":"ItA Engine Room Records Side: Teleporter Fail",
+    "ItA_hack":"ItA Brig: Hack Fail",
+    "ItA_magic":"ItA Brig: Wizard Magic Fail" ,
+    "ItA_retroglove":"ItA Brig: Retroglove Fail",
+    "ItA_gravgun":"ItA Vault: Gravity Manipulator Fail",
+    "ItA_clawpack":"ItA Vault: Clawpack Fail",
+    "ItA_umbrella":"ItA Outer Wing: Umbrella Fail",
+    "ItA_propane":"ItA Outer Wing: Propane Tank Fail",
+    "ItA_shell":"ItA Outer Wing: Shell Fail",
+    "ItA_deb":"ItA Center For Chaos Containment: D.E.B Fail",
+    "ItA_lcut":"ItA Center For Chaos Containment: L. Cut mk. II Fail",
+    "ItA_unknown":"ItA Center For Chaos Containment: Gaben Fail",
+    "Pure Blooded Thief":"ItA: Pure Blooded Thief",
+    "ItA_acid":"ItA Airship Topside: Acid Fail",
+    "ItA_knock":"ItA Airship Topside: Knock Fail",
+    "ItA_c4":"ItA Airship Topside: C4 Fail",
+    "ItA_disguise":"ItA Boardroom: Disguise Fail",
+    "ItA_transd":"ItA Boardroom: Transdimensionalizer Fail",
+    "ItA_charles":"ItA Engine Room Vault Side: Charles Fail",
+    "ItA_gravbubble":"ItA Engine Room Vault Side: Gravity Bubble Fail",
+    "ItA_platform":"ItA Engine Room Vault Side: Platform Fail",
+    "ItA_gatling":"ItA Engine Vents: Gatling Gun Fail",
+    "ItA_mindcontrol":"ItA Engine Vents: Mind Control Fail",
+    "ItA_remote":"ItA Engine Vents: Remote Access Fail",
+    "ItA_ninjastar":"ItA Records Library: Ninja Star Fail",
+    "ItA_records":"ItA Records Library: Duck Propeller Fail",
+    "ItA_falconkick":"ItA Records Library: Falcon Kick Fail",
+    "ItA_nohelp":"ItA Air Duct: Don't Need Help Fail",
+    "ItA_poweroff":"ItA Air Duct: Shut off Power Fail",
+    "ItA_banana":"ItA Cargo Bay Evidence: Banana Bomb Fail",
+    "ItA_sleepinggas":"ItA Cargo Bay Evidence: Sleeping Gas Fail",
+    "ItA_flashbang":"ItA Cargo Bay Evidence: Flashbang Fail",
+    "Goverment Supported Private Investigator":"ItA: Government Supported Private Investigator",
+    "ItA_laser":"ItA Bridge: Laser Fail",
+    "ItA_thruster":"ItA Bridge: Thruster Fail",
+    "ItA_spikes":"ItA Warehouse: Spikes Fail",
+    "ItA_boiler":"ItA Warehouse: COAL-ossal Fail",
+    "ItA_boost":"ItA Warehouse: Boost Fail",
+    "ItA_warp":"ItA Quarters Hallway: Warp Fail",
+    "ItA_metalfist":"ItA Quarters Hallway: Metal Fist Fail",
+    "ItA_hallwayrun":"ItA Quarters Hallway: Doors Fail",
+    "ItA_technotrousers":"ItA Brig Damaged: Robo Pants Fail",
+    "ItA_metalbend":"ItA Brig Damaged: Metal Bend Fail",
+    "ItA_EB_bash":"ItA Yo-Yo Fight: Bash Fail",
+    "ItA_EB_psi":"ItA Yo-Yo Fight: PSI Fail",
+    "ItA_EB_defend":"ItA Yo-Yo Fight: Defend Fail",
+    "ItA_FF_fight":"ItA Dirk Fight:Fight Fail",
+    "ItA_FF_blitz":"ItA Dirk Fight: Blitz Fail",
+    "ItA_FF_magic":"ItA Dirk Fight: Magic Fail",
+    "ItA_jetboots":"ItA Ventalation Shaft: JetBoots Fail",
+    "ItA_beefup":"ItA Ventalation Shaft: Beef Up Fail",
+    "ItA_parachute":"ItA Cargo Bay Hostage: Parachute Fail",
+    "ItA_missile":"ItA Cargo Bay Hostage: Missile Fail",
+    "Rapidly Promoted Executive":"ItA: Rapidly Promoted Executive",
+    "Relentless Bounty Hunter":"ItA: Relentlesss Bounty Hunter"
 }
 
 
@@ -113,6 +177,36 @@ def get_num_EtP_ranks_achived(ctx):
 
     return num_etp_ranks
 
+def get_num_StD_ranks_achived(ctx):
+    num_etp_ranks = 0
+    if LOCATION_NAME_TO_ID["StD: Unseen Burglar"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    if LOCATION_NAME_TO_ID["StD: Just Plain Epic"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    if LOCATION_NAME_TO_ID["StD: Intruder On A Scooter"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    return num_etp_ranks
+
+def get_num_ItA_ranks_achived(ctx):
+    num_etp_ranks = 0
+    if LOCATION_NAME_TO_ID["ItA: Relentlesss Bounty Hunter"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    if LOCATION_NAME_TO_ID["ItA: Government Supported Private Investigator"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    if LOCATION_NAME_TO_ID["ItA: Rapidly Promoted Executive"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    if LOCATION_NAME_TO_ID["ItA: Pure Blooded Thief"] in ctx.locations_checked:
+        num_etp_ranks = num_etp_ranks + 1
+
+    return num_etp_ranks
+
+
 def check_if_goal_completed(ctx):
     if ctx.henryslotdata['Goal'] == 0:
         total_ranks = 0
@@ -120,12 +214,20 @@ def check_if_goal_completed(ctx):
             total_ranks = total_ranks + get_num_BtB_ranks_achived(ctx)
         if ctx.henryslotdata['EtP'] != 0:
             total_ranks = total_ranks + get_num_EtP_ranks_achived(ctx)
+        if ctx.henryslotdata['StD'] != 0:
+            total_ranks = total_ranks + get_num_StD_ranks_achived(ctx)
+        if ctx.henryslotdata['ItA'] != 0:
+            total_ranks = total_ranks + get_num_ItA_ranks_achived(ctx)
         if total_ranks >= ctx.henryslotdata['Required_Ranks']:
             return True
     elif ctx.henryslotdata['Goal'] == 2:
         if ctx.henryslotdata['BtB'] != 0 and get_num_BtB_ranks_achived(ctx) < 1:
             return False
         if ctx.henryslotdata['EtP'] != 0 and get_num_EtP_ranks_achived(ctx) < 1:
+            return False
+        if ctx.henryslotdata['StD'] != 0 and get_num_StD_ranks_achived(ctx) < 1:
+            return False
+        if ctx.henryslotdata['ItA'] != 0 and get_num_ItA_ranks_achived(ctx) < 1:
             return False
         return True
     return False
