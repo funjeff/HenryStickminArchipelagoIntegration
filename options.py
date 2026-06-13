@@ -36,6 +36,38 @@ class EtP(Choice):
     option_yes_vanilla = 3
     default = 1
 
+class StD(Choice):
+    """
+    Include Henry Stickmin Stealing the Diamond in the randomization
+    0 - Don't include Stealing the Diamond
+    1 - include Stealing the Diamond its avilable from the start
+    2 - include Stealing the Diamond its unlocked when you receve it from an archipelago check
+    3 - include Stealing the Diamond its unlocked when you complete any rank in Escaping the Prison
+
+    """
+    display_name = "Stealing the Diamond"
+    option_no = 0
+    option_yes_open_world = 1
+    option_yes_multiworld = 2
+    option_yes_vanilla = 3
+    default = 1
+
+class ItA(Choice):
+    """
+    Include Henry Stickmin Infiltrating the Airship in the randomization
+    0 - Don't include Infiltrating the Airship
+    1 - include Infiltrating the Airship its avilable from the start
+    2 - include Infiltrating the Airship its unlocked when you receve it from an archipelago check
+    3 - include Infiltrating the Airship its unlocked when you complete any rank in Stealing the Diamond
+
+    """
+    display_name = "Infiltrating the Airship"
+    option_no = 0
+    option_yes_open_world = 1
+    option_yes_multiworld = 2
+    option_yes_vanilla = 3
+    default = 1
+
 
 class Goal(Choice):
     """
@@ -53,7 +85,7 @@ class Goal(Choice):
 class Required_Ranks(Range):
     "How many ranks must you achive does nothing if goal is not rank hunt.  If you are not including all games in the randomization make sure this option is set to less than the number of ranks in all the games you include"
     range_start = 1
-    range_end = 4
+    range_end = 11
 
 class Teleporter_Start(Choice):
     """
@@ -71,6 +103,8 @@ class Teleporter_Start(Choice):
 class HenryStickminOptions(PerGameCommonOptions):
     BtB: BtB
     EtP: EtP
+    StD: StD
+    ItA: ItA
     Goal: Goal
     Required_Ranks: Required_Ranks
     Teleporter_Start: Teleporter_Start
