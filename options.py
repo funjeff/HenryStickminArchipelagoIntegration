@@ -85,7 +85,7 @@ class Goal(Choice):
 class Required_Ranks(Range):
     "How many ranks must you achive does nothing if goal is not rank hunt.  If you are not including all games in the randomization make sure this option is set to less than the number of ranks in all the games you include"
     range_start = 1
-    range_end = 4
+    range_end = 11
 
 class Teleporter_Start(Choice):
     """

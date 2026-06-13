@@ -160,52 +160,69 @@ def arc_id_to_henry_input_name(id):
 
 def get_num_BtB_ranks_achived(ctx):
     num_btb_ranks = 0
-    if LOCATION_NAME_TO_ID["BtB: The Story Begins"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["BtB: The Story Begins"] in get_location_ids(ctx):
         num_btb_ranks = num_btb_ranks + 1
     return num_btb_ranks
 
 def get_num_EtP_ranks_achived(ctx):
     num_etp_ranks = 0
-    if LOCATION_NAME_TO_ID["EtP: Lawyered Up"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["EtP: Lawyered Up"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["EtP Rooftop: Rope Fail"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["EtP: Sneaky Escapist"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["EtP: Baddass Bust Out"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["EtP: Baddass Bust Out"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
     return num_etp_ranks
 
 def get_num_StD_ranks_achived(ctx):
     num_etp_ranks = 0
-    if LOCATION_NAME_TO_ID["StD: Unseen Burglar"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["StD: Unseen Burglar"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["StD: Just Plain Epic"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["StD: Just Plain Epic"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["StD: Intruder On A Scooter"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["StD: Intruder On A Scooter"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
     return num_etp_ranks
 
 def get_num_ItA_ranks_achived(ctx):
     num_etp_ranks = 0
-    if LOCATION_NAME_TO_ID["ItA: Relentlesss Bounty Hunter"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["ItA: Relentlesss Bounty Hunter"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["ItA: Government Supported Private Investigator"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["ItA: Government Supported Private Investigator"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["ItA: Rapidly Promoted Executive"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["ItA: Rapidly Promoted Executive"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
-    if LOCATION_NAME_TO_ID["ItA: Pure Blooded Thief"] in ctx.locations_checked:
+    if LOCATION_NAME_TO_ID["ItA: Pure Blooded Thief"] in get_location_ids(ctx):
         num_etp_ranks = num_etp_ranks + 1
 
     return num_etp_ranks
 
+def found_BtB_rank(ctx):
+    return get_num_BtB_ranks_achived(ctx) != 0
+
+def found_EtP_rank(ctx):
+    return get_num_EtP_ranks_achived(ctx) != 0
+
+def found_StD_rank(ctx):
+    return get_num_StD_ranks_achived(ctx) != 0
+
+def found_ItA_rank(ctx):
+    return get_num_ItA_ranks_achived(ctx) != 0
+
+def get_location_ids(ctx):
+    ids = []
+    for location in ctx.locations_checked:
+        ids.append(location.location)
+    return ids
 
 def check_if_goal_completed(ctx):
     if ctx.henryslotdata['Goal'] == 0:
@@ -218,16 +235,17 @@ def check_if_goal_completed(ctx):
             total_ranks = total_ranks + get_num_StD_ranks_achived(ctx)
         if ctx.henryslotdata['ItA'] != 0:
             total_ranks = total_ranks + get_num_ItA_ranks_achived(ctx)
+        print(total_ranks)
         if total_ranks >= ctx.henryslotdata['Required_Ranks']:
             return True
     elif ctx.henryslotdata['Goal'] == 2:
-        if ctx.henryslotdata['BtB'] != 0 and get_num_BtB_ranks_achived(ctx) < 1:
+        if ctx.henryslotdata['BtB'] != 0 and not found_BtB_rank(ctx):
             return False
-        if ctx.henryslotdata['EtP'] != 0 and get_num_EtP_ranks_achived(ctx) < 1:
+        if ctx.henryslotdata['EtP'] != 0 and not found_EtP_rank(ctx):
             return False
-        if ctx.henryslotdata['StD'] != 0 and get_num_StD_ranks_achived(ctx) < 1:
+        if ctx.henryslotdata['StD'] != 0 and not found_StD_rank(ctx):
             return False
-        if ctx.henryslotdata['ItA'] != 0 and get_num_ItA_ranks_achived(ctx) < 1:
+        if ctx.henryslotdata['ItA'] != 0 and not found_ItA_rank(ctx):
             return False
         return True
     return False
@@ -236,7 +254,7 @@ def get_henry_deathlink_reason(henryNames, playerName):
     for name in henryNames:
         match name:
             case "shovel":
-                return f"{playerName} dug strate down"
+                return f"{playerName} dug straight down"
             case "explosives":
                 return f"{playerName} used no care"
             case "laser":
@@ -293,6 +311,66 @@ def get_henry_deathlink_reason(henryNames, playerName):
                 return f"{playerName} left him no choice"
             case "std_timed6drive":
                 return f"{playerName} diden't get very far"
+            case "ItA_zpe":
+                return f"{playerName} diden't know where to put it"
+            case "ItA_bomb":
+                return f"{playerName} should've used the remote bombs"
+            case "ItA_joybuzzer":
+                return f"don't shake {playerName}'s hand"
+            case "ItA_expandingfoam":
+                return f"{playerName} shook well"
+            case "ItA_stretch":
+                return f"{playerName} grinded their gears"
+            case "ItA_hack":
+                return f"{playerName} can't wait to go Ohm"
+            case "ItA_magic":
+                return f"{playerName} rolled a 1"
+            case "ItA_shell":
+                return f"{playerName} had no plan"
+            case "ItA_propane":
+                return f"{playerName} told ya h-what"
+            case "ItA_umbrella":
+                return f"{playerName} needs a spoonfull of sugar"
+            case "ItA_deb":
+                return f"                                 ..goodbye                                     "
+            case "ItA_lcut":
+                return f"{playerName} pushed their problem somewhere else"
+            case "ItA_acid":
+                return f"{playerName} coulden't stand acid"
+            case "ItA_c4":
+                return f"{playerName} diden't take cover"
+            case "ItA_transd":
+                return f"__________________________________________________"
+            case "ItA_charles":
+                return f"Hey look! Charles is here!"
+            case "ItA_platform":
+                return f"{playerName}'s targeting system was off"
+            case "ItA_remote":
+                return f"{playerName} used the wrong subroutine"
+            case "ItA_gatling":
+                return f"{playerName} brought out the big guns"
+            case "ItA_falconkick":
+                return f"{playerName} put in too much energy"
+            case "ItA_nohelp":
+                return f"{playerName} needed help"
+            case "ItA_flashbang":
+                return f"{playerName} wasen't very bright"
+            case "ItA_banana":
+                return f"Dun dun dun dun OOoohhhhh BANANA! Dun dun dun dun"
+            case "ItA_laser":
+                return f"{playerName} diden't know newton's 3rd law"
+            case "ItA_spikes":
+                return f"{playerName} went for the defensive choice"
+            case "ItA_boiler":
+                return f"{playerName} failed COAL-ossaly"
+            case "ItA_EB_bash" | "ItA_EB_psi" | "ItA_EB_defend":
+                return f"{playerName} took mortal damage"
+            case "ItA_FF_fight" | "ItA_FF_blitz" | "ItA_FF_magic":
+                return f"{playerName} lost the battle"
+            case "ItA_jetboots":
+                return f"{playerName} need lighter materials"
+            case "ItA_beefup":
+                return f"{playerName} saw results!"
+
 
     return "None"
-        

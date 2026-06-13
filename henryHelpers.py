@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
-from rule_builder.rules import Has
-from .henry_to_arc_names import *
+from rule_builder.rules import Has, HasAny
+
+from .options import BtB,EtP, ItA,StD,Required_Ranks
 
 if TYPE_CHECKING:
     from .world import HenryStickminWorld
@@ -52,17 +53,21 @@ def get_StD_rank_event_item_names():
 def get_ItA_rank_event_item_names():
     return["Relentless Bounty Hunter Event Item","Government Supported Private Investigator Event Item","Rapidly Promoted Executive Event Item","Pure Blooded Thief Event Item"]
 
+def get_EtP_unlock_rule(world):
+    if world.options.EtP == EtP.option_yes_vanilla:
+        return HasAny(*get_BtB_rank_event_item_names())
+    else: 
+        return Has("Escaping The Prison")
 
+def get_StD_unlock_rule(world):
+    if world.options.StD == StD.option_yes_vanilla:
+        return HasAny(*get_EtP_rank_event_item_names())
+    else: 
+        return Has("Stealing The Diamond")
 
+def get_ItA_unlock_rule(world):
+    if world.options.ItA == ItA.option_yes_vanilla:
+        return HasAny(*get_StD_rank_event_item_names())
+    else: 
+        return Has("Infiltraiting The Airship")
 
-def found_BtB_rank(ctx):
-    return get_num_BtB_ranks_achived(ctx) != 0
-
-def found_EtP_rank(ctx):
-    return get_num_EtP_ranks_achived(ctx) != 0
-
-def found_StD_rank(ctx):
-    return get_num_StD_ranks_achived(ctx) != 0
-
-def found_ItA_rank(ctx):
-    return get_num_ItA_ranks_achived(ctx) != 0

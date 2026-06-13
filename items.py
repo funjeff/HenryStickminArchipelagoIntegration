@@ -55,7 +55,7 @@ ITEM_NAME_TO_ID = {
     "Bubble": 40,
     "Tunisian Diamond": 41,
     "Jumble Hoppers": 42,
-    "StDAntiGravityCapFail": 43,
+    "Anti-Gravity Cap": 43,
     "Shrink Ray": 44,
     "Pick": 45,
     "Liquidificator": 46,
@@ -78,9 +78,8 @@ ITEM_NAME_TO_ID = {
     "Goodball": 63,
     "Mushroom": 64, #thats awesome that that worked out like that
     "Division By Zero": 65,
-    "Nuclear Bomb": 66,
-    "Shoop da Whoop": 67,
-    "Giant CCC Robot": 68,
+    "Nuclear Bomb": 66, 
+    "Giant CCC Robot": 68, #yes I removed index 67 no it wasen't intentaional (CCC is a softlock if you don't have anything so one of them has to be avilable from the start)
     "Useless Device": 69,
     "Really Stupid Idea":70,
     "Poorly Thought Out Plan":71,
@@ -99,7 +98,7 @@ ITEM_NAME_TO_ID = {
     "Wizard Magic":84,
     "Retroglove":85,
     "Clawpack":86,
-    "Paperizor":138,
+    "Paperizor":140,
     "Shrink 'n Grow":87,
     "Gravity Manipulator":88,
     "Shell":89,
@@ -153,6 +152,7 @@ ITEM_NAME_TO_ID = {
     "Force Gun":137,
     "PSI Flash":138,
     "Fire Magic":139
+# next item should be 141
 
 }
 
@@ -227,7 +227,6 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     "Mushroom": ItemClassification.progression, #thats awesome that that worked out like that
     "Division By Zero": ItemClassification.progression,
     "Nuclear Bomb": ItemClassification.progression,
-    "Shoop da Whoop": ItemClassification.progression,
     "Giant CCC Robot": ItemClassification.progression,
     "Useless Device": ItemClassification.filler,
     "Really Stupid Idea": ItemClassification.filler,
@@ -312,7 +311,8 @@ class HenryStickminItem(Item):
 
 def get_random_filler_item_name(world: HenryStickminWorld) -> str:
     
-    fillNum = world.random.randint(0,6)
+    fillNum = world.random.randint(0,5)
+
     match fillNum:
         case 0:
             return "Distraction"
@@ -345,6 +345,8 @@ def create_all_items(world: HenryStickminWorld) -> None:
         btb_item = world.create_item("Breaking The Bank")
         if world.options.BtB == 1:
             world.push_precollected(btb_item)
+        else:
+            itempool.append(btb_item)
 
 
     if use_BtB(world) or use_EtP(world):
@@ -355,6 +357,8 @@ def create_all_items(world: HenryStickminWorld) -> None:
         teleporter_item = world.create_item("Teleporter") 
         if world.options.Teleporter_Start == 1:
             world.push_precollected(teleporter_item)
+        else:
+            itempool.append(teleporter_item)
 
     if use_EtP(world):
         itempool.append(world.create_item("File"))
@@ -376,6 +380,8 @@ def create_all_items(world: HenryStickminWorld) -> None:
             etp_item = world.create_item("Escaping The Prison")
             if world.options.EtP == 1:
                 world.push_precollected(etp_item)
+            else:
+                itempool.append(etp_item)
 
 
     if use_EtP(world) or use_StD(world):
@@ -421,12 +427,13 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Mushroom"))
         itempool.append(world.create_item("Division By Zero"))
         itempool.append(world.create_item("Nuclear Bomb"))
-        itempool.append(world.create_item("Shoop da Whoop"))
         itempool.append(world.create_item("Giant CCC Robot"))
         if world.options.StD != 3: 
             std_item = world.create_item("Stealing The Diamond")
             if world.options.StD == 1:
                 world.push_precollected(std_item)
+            else:
+                itempool.append(std_item)
     
     if use_ItA(world):
         itempool.append(world.create_item("Earpiece"))
@@ -496,11 +503,13 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Force Gun"))
         itempool.append(world.create_item("Fire Magic"))
         itempool.append(world.create_item("PSI Flash"))
+        itempool.append(world.create_item("Paperizor"))
         if world.options.ItA != 3: 
             ita_item = world.create_item("Infiltraiting The Airship")
             if world.options.ItA == 1:
                 world.push_precollected(ita_item)
-
+            else:
+                itempool.append(ita_item)
 
     number_of_items = len(itempool)
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))

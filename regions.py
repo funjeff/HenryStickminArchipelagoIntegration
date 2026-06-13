@@ -6,6 +6,8 @@ from BaseClasses import Entrance, Region
 
 from .henryHelpers import *
 
+from rule_builder.rules import Has, And
+
 if TYPE_CHECKING:
     from .world import HenryStickminWorld
 
@@ -56,8 +58,6 @@ def create_all_regions(world: HenryStickminWorld) -> None:
         regions.extend(stdRegions)
     
     if use_ItA(world):
-        itaHelicopterDoor = Region("itaHelicopterDoor", world.player, world.multiworld)
-        
         itaBridge = Region("itaBridge", world.player, world.multiworld)
         itaWarehouse = Region("itaWarehouse", world.player, world.multiworld)
         itaQuartersHallway = Region("itaQuartersHallway", world.player, world.multiworld)
@@ -73,126 +73,70 @@ def create_all_regions(world: HenryStickminWorld) -> None:
         itaCenterForChaosContainment = Region("itaCenterForChaosContainment", world.player, world.multiworld)
 
         itaAirshipTopside = Region("itaAirshipTopside", world.player, world.multiworld)
+        itaBoardroom = Region("itaBoardroom", world.player, world.multiworld)
         itaEngineRoomVaultSide = Region("itaEngineRoomVaultSide", world.player, world.multiworld)
         itaEngineVents = Region("itaEngineVents", world.player, world.multiworld)
         itaRecordsLibrary = Region("itaRecordsLibrary", world.player, world.multiworld)
         itaAirDuct = Region("itaAirDuct", world.player, world.multiworld)
 
         itaCargoBay = Region("itaCargoBay", world.player, world.multiworld)
-        itaRegions = [itaHelicopterDoor,itaBridge,itaWarehouse,itaQuartersHallway,itaBrigDamaged,itaShowdownFF,itaShowdownEB,itaVentalationShaft,itaCargoBayHostage,itaViewingPlatform,itaVault,itaOuterWing,itaCenterForChaosContainment,itaAirshipTopside,itaEngineRoomVaultSide,itaEngineVents,itaRecordsLibrary,itaAirDuct,itaCargoBay]
+        itaRegions = [itaBridge,itaWarehouse,itaQuartersHallway,itaBrigDamaged,itaShowdownFF,itaShowdownEB,itaVentalationShaft,itaCargoBayHostage,itaViewingPlatform,itaVault,itaOuterWing,itaCenterForChaosContainment,itaAirshipTopside,itaBoardroom,itaEngineRoomVaultSide,itaEngineVents,itaRecordsLibrary,itaAirDuct,itaCargoBay]
         regions.extend(itaRegions)
     
 
     # We now need to add these regions to multiworld.regions so that AP knows about their existence.
     world.multiworld.regions += regions
 
+def create_region_progression(world,starting_region,regions, rules, pathname):
+    prev_region = starting_region
+    entrance_num = 0
+
+    for cur_region, rule in zip(regions, rules):
+        cur_region_obj = world.get_region(cur_region)
+        if rule is not None:
+            prev_region.connect(cur_region_obj,f"{pathname} Entrance {entrance_num}",rule)
+        else:
+            prev_region.connect(cur_region_obj,f"{pathname} Entrance {entrance_num}")
+        prev_region = cur_region_obj
+        entrance_num += 1
 
 def connect_regions(world: HenryStickminWorld) -> None:
     chapterSelect = world.get_region("chapterSelect")
 
     if use_BtB(world):
-        btbBank = world.get_region("btbIntro")
-        chapterSelect.connect(btbBank, "btb_entrance")
+        create_region_progression(world,chapterSelect,["btbIntro"],[Has("Breaking The Bank")],"BtB Progression")
 
     if use_EtP(world):
+        create_region_progression(world,chapterSelect,["etpCell","etpCourtroom"],[get_EtP_unlock_rule(world),Has("Cellphone")],"EtP Lawyered Up Progression")
+        
         etpCell = world.get_region("etpCell")
-        etpCourtroom = world.get_region("etpCourtroom")
-        etpCloset = world.get_region("etpCloset")
-        etpRooftop = world.get_region("etpRooftop")
-        etpBathroom = world.get_region("etpBathroom")
-        etpLobby = world.get_region("etpLobby")
-
-        chapterSelect.connect(etpCell, "etp_entrance")
-
-        etpCell.connect(etpCourtroom, "Cellphone")
-        etpCell.connect(etpCloset, "File")
-        etpCloset.connect(etpRooftop, "Chair")
-
-        etpCell.connect(etpBathroom, "Drill")
-        etpBathroom.connect(etpLobby, "Crowbar")
+        create_region_progression(world,etpCell,["etpCloset","etpRooftop"],[Has("File"),Has("Chair")],"EtP Sneaky Escapist Progression")
+        create_region_progression(world,etpCell,["etpBathroom","etpLobby"],[Has("Drill"),Has("Crowbar")],"EtP Badass Bust Out Progression")
+        
 
     if use_StD(world):
+        
+        create_region_progression(world,chapterSelect,["stdLookout","stdDiamondExhibitScooter","stdPoliceChaseCar","stdPoliceChaseHeli","stdBridge"],[get_StD_unlock_rule(world),Has("Shield"),Has("Tow Cable"),Has("Rock"),Has("Bubble")],"StD Intruder On A Scooter Progression")
+    
         stdLookout = world.get_region("stdLookout")
-        stdDiamondExhibitScooter = world.get_region("stdDiamondExhibitScooter")
-        stdPoliceChaseCar = world.get_region("stdPoliceChaseCar")
-        stdPoliceChaseHeli = world.get_region("stdPoliceChaseHeli")
-        stdBridge = world.get_region("stdBridge")
-
-        stdRooftop = world.get_region("stdRooftop")
-        stdCatwalk = world.get_region("stdCatwalk")
-        stdDiamondExhibit = world.get_region("stdDiamondExhibit")
-        stdStorageRoom = world.get_region("stdStorageRoom")
-        stdBackdoor = world.get_region("stdBackdoor")
-
-        stdWW2Exhibit = world.get_region("stdWW2Exhibit")
-        stdRetroExhibit = world.get_region("stdRetroExhibit")
-        stdCenterForChaosContainment = world.get_region("stdCenterForChaosContainment")
-
-        chapterSelect.connect(stdLookout, "std_entrance")
-
-        stdLookout.connect(stdDiamondExhibitScooter, "Shield")
-        stdDiamondExhibitScooter.connect(stdPoliceChaseCar,"Tow Cable")
-        stdPoliceChaseCar.connect(stdPoliceChaseHeli,"Rock")
-        stdPoliceChaseHeli.connect(stdBridge,"Bubble")
-
-        stdLookout.connect(stdRooftop, "Teleporter")
-        stdRooftop.connect(stdCatwalk, "Penny")
-        stdCatwalk.connect(stdDiamondExhibit, "Wire")
-        stdDiamondExhibit.connect(stdStorageRoom, "Hammer")
-        stdStorageRoom.connect(stdBackdoor, "Plank")
-
-        stdLookout.connect(stdWW2Exhibit, "Pick")
-        stdWW2Exhibit.connect(stdRetroExhibit,"Plane")
-        stdRetroExhibit.connect(stdCenterForChaosContainment,"Mushroom")
+        create_region_progression(world,stdLookout,["stdRooftop","stdCatwalk","stdDiamondExhibit","stdStorageRoom","stdBackdoor"],[Has("Teleporter"),Has("Penny"),Has("Wire"),Has("Hammer"),Has("Plank")],"StD Unseen Burglar Progression")
+        create_region_progression(world,stdLookout,["stdWW2Exhibit","stdRetroExhibit","stdCenterForChaosContainment"],[Has("Pick"),Has("WW2 Plane"),Has("Mushroom")],"StD Just Plain Epic Progression")
 
     if use_ItA(world):
-        itaHelicopterDoor = world.get_region("itaHelicopterDoor")
-        
-        itaBridge = world.get_region("itaBridge")
-        itaWarehouse = world.get_region("itaWarehouse")
-        itaQuartersHallway = world.get_region("itaQuartersHallway")
+
+        create_region_progression(world,chapterSelect,["itaBridge","itaWarehouse","itaQuartersHallway","itaBrigDamaged","itaShowdownFF","itaVentalationShaft","itaCargoBayHostage"],[And(get_ItA_unlock_rule(world), Has("Cannon Ball")),Has("Cannon Ball Chair"),Has("Cannon Ball Eject Button"),Has("Beans"),And(Has("Dirk"),Has("Rocket Launcher")),Has("Chainsaw"),Has("Glider")],"ItA Relentless Bounty Hunter Progression")
+        # alternate path defeat right hand man with yo-yo instead of dirk
         itaBrigDamaged = world.get_region("itaBrigDamaged")
-        itaShowdownFF = world.get_region("itaShowdownFF")
         itaShowdownEB = world.get_region("itaShowdownEB")
         itaVentalationShaft = world.get_region("itaVentalationShaft")
-        itaCargoBayHostage = world.get_region("itaCargoBayHostage")
+        itaBrigDamaged.connect(itaShowdownEB,"Earthbound Entrance", And(Has("Yo-Yo"),Has("Rocket Launcher")))
+        itaShowdownEB.connect(itaVentalationShaft,"Multi Bottle Rocket Entrance",Has("Multi bottle rocket"))
 
-        itaViewingPlatform = world.get_region("itaViewingPlatform")
-        itaVault = world.get_region("itaVault")
-        itaOuterWing = world.get_region("itaOuterWing")
-        itaCenterForChaosContainment = world.get_region("itaCenterForChaosContainment")
-
-        itaAirshipTopside = world.get_region("itaAirshipTopside")
-        itaEngineRoomVaultSide = world.get_region("itaEngineRoomVaultSide")
-        itaEngineVents = world.get_region("itaEngineVents")
-        itaRecordsLibrary = world.get_region("itaRecordsLibrary")
-        itaAirDuct = world.get_region("itaAirDuct")
+        create_region_progression(world,chapterSelect,["itaViewingPlatform","itaVault","itaOuterWing","itaCenterForChaosContainment"],[And(get_ItA_unlock_rule(world),Has("Grapple Gun")),Has("Paperizor"),Has("Shrink 'n Grow"),Has("Armor")],"ItA Pure Blooded Thief Progression")
+        create_region_progression(world,chapterSelect,["itaAirshipTopside","itaBoardroom","itaEngineRoomVaultSide","itaEngineVents","itaRecordsLibrary","itaAirDuct"],[And(get_ItA_unlock_rule(world), Has("Earpiece")),Has("Vacuum"),Has("Glue"),Has("Robo Helper"),Has("Bone Melt"),Has("Spider On A Stick")],"ItA Goverment Supported Private Investagator Progression")
 
         itaCargoBay = world.get_region("itaCargoBay")
-
-        chapterSelect.connect(itaHelicopterDoor, "ita_entrance")
-
-        itaHelicopterDoor.connect(itaBridge, "Cannon Ball")
-        itaBridge.connect(itaWarehouse, "Cannon Ball Chair")
-        itaWarehouse.connect(itaQuartersHallway, "Cannon Ball Eject Button")
-        itaQuartersHallway.connect(itaBrigDamaged, "Beans")
-        itaBrigDamaged.connect(itaShowdownFF, "DirkandRocketLauncher")
-        itaBrigDamaged.connect(itaShowdownEB, "Yo-YoandRocketLauncher")
-        itaShowdownFF.connect(itaVentalationShaft, "Chainsaw")
-        itaShowdownEB.connect(itaVentalationShaft, "Multi bottle rocket")
-        itaVentalationShaft.connect(itaCargoBayHostage, "Glider")
-
-        itaHelicopterDoor.connect(itaViewingPlatform, "Grapple Gun")
-        itaVault.connect(itaOuterWing, "Paperizor")
-        itaOuterWing.connect(itaCenterForChaosContainment, "Armor")
-
-        itaHelicopterDoor.connect(itaAirshipTopside, "Earpiece")
-        itaAirshipTopside.connect(itaEngineRoomVaultSide, "Glue")
-        itaEngineRoomVaultSide.connect(itaEngineVents, "Robo Helper")
-        itaEngineVents.connect(itaRecordsLibrary, "Bone Melt")
-        itaRecordsLibrary.connect(itaAirDuct, "Spider On A Stick")
-
-        itaHelicopterDoor.connect(itaCargoBay, "Sticky Hand")
+        chapterSelect.connect(itaCargoBay,"Sticky Hand Entrance",And(get_ItA_unlock_rule(world),Has("Sticky Hand")))
 
         
         

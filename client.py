@@ -30,7 +30,6 @@ class HenryCommandProcessor(ClientCommandProcessor):
 class HenryContext(CommonContext):
     game = "The Henry Stickmin Collection"
     save_path = ""
-    items_sent_to_henry = []
     command_processor = HenryCommandProcessor
     items_handling = 0b111
     henryslotdata = None
@@ -39,6 +38,7 @@ class HenryContext(CommonContext):
     def on_package(self, cmd: str, args: dict):
         if cmd == "Connected":
             self.henryslotdata = args['slot_data']
+            
         elif cmd == 'ReceivedItems':
             update_henry_input(self,args['items'])
 
@@ -129,17 +129,13 @@ async def check_henry_output(ctx):
 async def on_locations_checked(ctx, locations):
     locIds = henry_name_to_arc_id(locations)
 
-    checked = set(ctx.locations_checked)
-    ctx.locations_checked.update(
-        loc_id for loc_id in locIds
-        if loc_id not in checked
-    )
+    await ctx.check_locations(locIds)
 
     if check_if_goal_completed(ctx):
         ctx.finished_game = True
         await ctx.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
 
-    await ctx.check_locations(locIds)
+
     deathlinkReason = get_henry_deathlink_reason(locations,ctx.auth)
     if (deathlinkReason != "None" and ctx.deathlink):
         await ctx.send_death(deathlinkReason)
@@ -147,21 +143,21 @@ async def on_locations_checked(ctx, locations):
 def add_vanila_progression_items(ctx,henry_item_names):
     final_item_names = henry_item_names
 
-    if (found_BtB_rank() and ctx.henryslotdata['EtP'] == 3):
+    if (found_BtB_rank(ctx) and ctx.henryslotdata['EtP'] == 3):
         final_item_names.append("Escaping The Prison")
 
-    if (found_EtP_rank() and ctx.henryslotdata['StD'] == 3):
+    if (found_EtP_rank(ctx) and ctx.henryslotdata['StD'] == 3):
         final_item_names.append("Stealing The Diamond")
 
-    if (found_StD_rank() and ctx.henryslotdata['ItA'] == 3):
+    if (found_StD_rank(ctx) and ctx.henryslotdata['ItA'] == 3):
         final_item_names.append("Infiltraiting The Airship")
     
     return final_item_names
 
 
 def update_henry_input(ctx,new_items):
-        ctx.items_sent_to_henry.extend(new_items)
-        henry_item_names = arc_id_to_henry_input_name(ctx.items_sent_to_henry)
+        ctx.locations_checked.update(new_items)
+        henry_item_names = arc_id_to_henry_input_name(ctx.locations_checked)
         henry_item_names = add_vanila_progression_items(ctx,henry_item_names)
         send_items_to_henry(ctx, henry_item_names)
 
