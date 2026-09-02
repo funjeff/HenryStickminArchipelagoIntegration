@@ -27,6 +27,14 @@ class HenryCommandProcessor(ClientCommandProcessor):
         """Turn on or off deathlink, nothing happens to you when your friends die so feel free to turn this on if you hate them"""
         logger.info(f"Deathlink set to " + str(not self.ctx.deathlink))
         self.ctx.deathlink = not self.ctx.deathlink
+    def _cmd_sync_to_henry(self):
+        """Syncs your current items to henry stickmin, this is done automatically when you get new items, but you can use this command to force a sync if you think something is wrong"""
+        henry_item_names = arc_id_to_henry_input_name(self.ctx.all_known_items)
+        henry_item_names = add_vanila_progression_items(self.ctx,henry_item_names)
+        henry_item_names = add_phone_a_friend_items(self.ctx,henry_item_names)
+        henry_item_names = add_timeline_items(self.ctx,henry_item_names)
+        send_items_to_henry(self.ctx, henry_item_names)
+        logger.info(f"Synced Items to Henry Stickmin")
 
 class HenryContext(CommonContext):
     game = "The Henry Stickmin Collection"
