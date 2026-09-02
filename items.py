@@ -151,9 +151,193 @@ ITEM_NAME_TO_ID = {
     "Flashbang":136,
     "Force Gun":137,
     "PSI Flash":138,
-    "Fire Magic":139
-# next item should be 141
+    "Fire Magic":139,
+    "Sonic Pulse":141,
+    "Cookie":142,
+    "Laser Plane":143,
+    "Bubble Shield":144,
+    "Earthbending":145,
+    "Flash":146,
+    "Sniper Rifle":147,
+    "Mini Helicopter":148,
+    "Undercover Agent":149,
+    "Neurotoxin":150,
+    "Drill Pod":151,
+    "Slingshot":152,
+    "Magnet":153,
+    "Sick Ride":154,
+    "Speed Shoes":155,
+    "Tool Gun":156,
+    "Item Box":157,
+    "Sword":158,
+    "Wall Truck Keys":159,
+    "Sandwich":160,
+    "Snowman Costume":161,
+    "Pistol":162,
+    "Warpstar":163,
+    "Airbag":164,
+    "Whoopee Cushion":165,
+    "Command Melody":166,
+    "Power Jump":167,
+    "Longshot":168,
+    "Spring":169,
+    "Balloon":170,
+    "Helium":172,
+    "Plunger Boots":173,
+    "Cardboard Box":174,
+    "Super Leaf":175,
+    "Shadozer":176,
+    "S.S. Annie":177,
+    "Dinghy":178,
+    "Rocket":179,
+    "Trenchcoat":180,
+    "Bounce Bros":181,
+    "The Force":182,
+    "GraviToR v2.0":183,
+    "Grenade":184,
+    "Crossbow":185,
+    "Taser":186,
+    "The Wall Hat":187,
+    "Adrenaline":188,
+    "The KNEE":189,
+    "Motercycle":190,
+    "Charles's Phone Number":191,
+    "Reginald's Phone Number":192,
+    "Super Punch":193,
+    "Wrist Strapped Grapple Hook":194,
+    "Very Accurate Targetting System":195,
+    "Mounted Gun":196,
+    "Helicopter":197,
+    "Flute":198,
+    "Revolver":199,
+    "Boomerang":200,
+    "Summon":201,
+    "Stylish Moves":202,
+    "Dual Tech":203,
+    "G-Inverter":204,
+    "Cloud":205,
+    "Thunder II":206,
+    "Lockpick":207,
+    "Metal Hat":208,
+    "Melt Ray":209,
+    "Big Sword":210,
+    "Underbarrel Grenade Launcher":211,
+    "Pew Pew Gun":212,
+    "Harden":213,
+    "Nano-Suit":214,
+    "Max Gravity Boots":215,
+    "Nano-Suit Missiles":216,
+    "Positron Reflector":217,
+    "Communications Satellite":218,
+    "Backwards Satellite":219,
+    "Offsite Drop Pod":220,
+    "Drawing":221,
+    "Cupcake":222,
+    "JetPod":223,
+    "Trapeze":224,
+    "Invisible Bridge":225,
+    "TV Broadcast":226,
+    "Subsonic Wave":227,
+    "Remote Toppat":228,
+    "Wrench":229,
+    "Red Herring":230,
+    "Swapper":231,
+    "Painting Portal":232,
+    "Bug Juice":233,
+    "Sleep Dart":234,
+    "Horn":235,
+    "IR Sniper":236,
+    "Umbrella Glider":237,
+    "Wings":239,
+    "Dirt Blocks":238,
+    "Barrel":240,
+    "Human Cannon":241,
+    "Net Launcher":242,
+    "Downgrader":243,
+    "Fusion Earings":244,
+    "Scooter Drill":245,
+    "Spiked Wheels":246,
+    "Battering Ram":247,
+    "Mosquito Mode":248,
+    "Light Speed":249,
+    "Bridge":250,
+    "Catapult":251,
+    "Pole Vault Stick":252,
+    "Wooden Ramp":253,
+    "Paper Rocket":254,
+    "SMASH":255,
+    "Chance Dice":256,
+    "Norwegian Emerald":257,
+    "Rah Doh FOO":258,
+    "Save States":259,
+    "Grow 'n Shrink":260,
+    "Mirror":261,
+    "Train Car Spring":262,
+    "Inflatable Raft":263,
+    "Rope":264,
+    "Controller":265,
+    "Time Machine":266,
+    "CorrupTick":267,
+    "Disguise Kit":268,
+    "Block":269,
+    "Glitchy Physics Engine":270,
+    "Knife":271,
+    "Lagswitch":272,
+    "Duplicatorange":273,
+    "Scrambler":274,
+    "Walkthrough":275,
+    "Evil Moon":276,
+    "Ultimate Freeze":277,
+    "G.A.B.E.G.G":288,
+    "Toppat Box":289,
+    "Prop":290,
+    "Magic Hat":291,
+    "Pinchers":292,
+    "Free Transform":293,
+    "Infini3":294,
+    "LeafMode":295,
+    "SuccPak":296,
+    "Woolooloo":297,
+    "Cluster Charge":298,
+    "Cheap Fighting Combo":299,
+    "Self Destruct":300,
+    "Ocarina":301,
+    "Trash Ball":302,
+    "Air Cannon":303,
+    "Warp Beam":304,
+    "Hot Knife":305,
+    "Super Accurate Laser Shot":306,
+    "Luxury Escape Pod":307,
+    "Normal Escape Pod":308,
+    "Damaged Escape Pod":309,
+    "Helicopter Hat":310,
+    "Toppy":311,
+    "Mind Crystal":312,
+    "Good Gents Doc":313,
+    "Midnight Surprise Doc":314,
+    "Deuces! Doc":315,
+    "Fulton":316,
+    "Purse of Holding":317,
+    "Shell Bounce":318,
+    "Needle":319,
+    "Wombo Combo":320,
+    "Blade Forme":321,
+    "Spirit Forme":322,
+    "Gun Forme":323,
+    "Baseball Bat":324,
+    "Y-Type Move":325,
+    "Staple":326,
+    "Relentless Bounty Hunter Timeline Unlock":327,
+    "Government Supported Private Investigator Timeline Unlock":328,
+    "Rapidly Promoted Executive Timeline Unlock":329,
+    "Pure Blooded Thief Timeline Unlock":330,
+    "Presumed Dead Timeline Unlock":331,
+    "International Rescue Operative Timeline Unlock":332,
+    "The Betrayed Timeline Unlock":333,
+    "Ghost Inmate Timeline Unlock":334,
+    "Convict Allies Timeline Unlock":335
 
+    
 }
 
 ID_TO_ITEM_NAME = {v: k for k, v in ITEM_NAME_TO_ID.items()}
@@ -299,7 +483,191 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     "Force Gun":ItemClassification.progression,
     "Paperizor":ItemClassification.progression,
     "PSI Flash":ItemClassification.progression,
-    "Fire Magic":ItemClassification.progression
+    "Fire Magic":ItemClassification.progression,
+    "Sonic Pulse":ItemClassification.progression,
+    "Cookie":ItemClassification.progression,
+    "Laser Plane":ItemClassification.progression,
+    "Bubble Shield":ItemClassification.progression,
+    "Earthbending":ItemClassification.progression,
+    "Flash":ItemClassification.progression,
+    "Sniper Rifle":ItemClassification.progression,
+    "Mini Helicopter":ItemClassification.progression,
+    "Undercover Agent":ItemClassification.progression,
+    "Neurotoxin":ItemClassification.progression,
+    "Drill Pod":ItemClassification.progression,
+    "Slingshot":ItemClassification.progression,
+    "Magnet":ItemClassification.progression,
+    "Sick Ride":ItemClassification.progression,
+    "Speed Shoes":ItemClassification.progression,
+    "Tool Gun":ItemClassification.progression,
+    "Item Box":ItemClassification.progression,
+    "Sword":ItemClassification.progression,
+    "Wall Truck Keys":ItemClassification.progression,
+    "Sandwich":ItemClassification.progression,
+    "Snowman Costume":ItemClassification.progression,
+    "Pistol":ItemClassification.progression,
+    "Warpstar":ItemClassification.progression,
+    "Airbag":ItemClassification.progression,
+    "Whoopee Cushion":ItemClassification.progression,
+    "Command Melody":ItemClassification.progression,
+    "Power Jump":ItemClassification.progression,
+    "Longshot":ItemClassification.progression,
+    "Spring":ItemClassification.progression,
+    "Balloon":ItemClassification.progression,
+    "Helium":ItemClassification.progression,
+    "Plunger Boots":ItemClassification.progression,
+    "Cardboard Box":ItemClassification.progression,
+    "Super Leaf":ItemClassification.progression,
+    "Shadozer":ItemClassification.progression,
+    "S.S. Annie":ItemClassification.progression,
+    "Dinghy":ItemClassification.progression,
+    "Rocket":ItemClassification.progression,
+    "Trenchcoat":ItemClassification.progression,
+    "Bounce Bros":ItemClassification.progression,
+    "The Force":ItemClassification.progression,
+    "GraviToR v2.0":ItemClassification.progression,
+    "Grenade":ItemClassification.progression,
+    "Crossbow":ItemClassification.progression,
+    "Taser":ItemClassification.progression,
+    "The Wall Hat":ItemClassification.progression,
+    "Adrenaline":ItemClassification.progression,
+    "The KNEE":ItemClassification.progression,
+    "Motercycle":ItemClassification.progression,
+    "Charles's Phone Number":ItemClassification.progression,
+    "Reginald's Phone Number":ItemClassification.progression,
+    "Super Punch":ItemClassification.progression,
+    "Wrist Strapped Grapple Hook":ItemClassification.progression,
+    "Very Accurate Targetting System":ItemClassification.progression,
+    "Mounted Gun":ItemClassification.progression,
+    "Helicopter":ItemClassification.progression,
+    "Flute":ItemClassification.progression,
+    "Revolver":ItemClassification.progression,
+    "Boomerang":ItemClassification.progression,
+    "Summon":ItemClassification.progression,
+    "Stylish Moves":ItemClassification.progression,
+    "Dual Tech":ItemClassification.progression,
+    "G-Inverter":ItemClassification.progression,
+    "Cloud":ItemClassification.progression,
+    "Thunder II":ItemClassification.progression,
+    "Lockpick":ItemClassification.progression,
+    "Metal Hat":ItemClassification.progression,
+    "Melt Ray":ItemClassification.progression,
+    "Big Sword":ItemClassification.progression,
+    "Underbarrel Grenade Launcher":ItemClassification.progression,
+    "Pew Pew Gun":ItemClassification.progression,
+    "Harden":ItemClassification.progression,
+    "Nano-Suit":ItemClassification.progression,
+    "Max Gravity Boots":ItemClassification.progression,
+    "Nano-Suit Missiles":ItemClassification.progression,
+    "Positron Reflector":ItemClassification.progression,
+    "Communications Satellite":ItemClassification.progression,
+    "Backwards Satellite":ItemClassification.progression,
+    "Offsite Drop Pod":ItemClassification.progression,
+    "Drawing":ItemClassification.progression,
+    "Cupcake":ItemClassification.progression,
+    "JetPod":ItemClassification.progression,
+    "Trapeze":ItemClassification.progression,
+    "Invisible Bridge":ItemClassification.progression,
+    "TV Broadcast":ItemClassification.progression,
+    "Subsonic Wave":ItemClassification.progression,
+    "Remote Toppat":ItemClassification.progression,
+    "Wrench":ItemClassification.progression,
+    "Red Herring":ItemClassification.progression,
+    "Swapper":ItemClassification.progression,
+    "Painting Portal":ItemClassification.progression,
+    "Bug Juice":ItemClassification.progression,
+    "Sleep Dart":ItemClassification.progression,
+    "Horn":ItemClassification.progression,
+    "IR Sniper":ItemClassification.progression,
+    "Umbrella Glider":ItemClassification.progression,
+    "Wings":ItemClassification.progression,
+    "Dirt Blocks":ItemClassification.progression,
+    "Barrel":ItemClassification.progression,
+    "Human Cannon":ItemClassification.progression,
+    "Net Launcher":ItemClassification.progression,
+    "Downgrader":ItemClassification.progression,
+    "Fusion Earings":ItemClassification.progression,
+    "Scooter Drill":ItemClassification.progression,
+    "Spiked Wheels":ItemClassification.progression,
+    "Battering Ram":ItemClassification.progression,
+    "Mosquito Mode":ItemClassification.progression,
+    "Light Speed":ItemClassification.progression,
+    "Bridge":ItemClassification.progression,
+    "Catapult":ItemClassification.progression,
+    "Pole Vault Stick":ItemClassification.progression,
+    "Wooden Ramp":ItemClassification.progression,
+    "Paper Rocket":ItemClassification.progression,
+    "SMASH":ItemClassification.progression,
+    "Chance Dice":ItemClassification.progression,
+    "Norwegian Emerald":ItemClassification.progression,
+    "Rah Doh FOO":ItemClassification.progression,
+    "Save States":ItemClassification.progression,
+    "Grow 'n Shrink":ItemClassification.progression,
+    "Mirror":ItemClassification.progression,
+    "Train Car Spring":ItemClassification.progression,
+    "Inflatable Raft":ItemClassification.progression,
+    "Rope":ItemClassification.progression,
+    "Controller":ItemClassification.progression,
+    "Time Machine":ItemClassification.progression,
+    "CorrupTick":ItemClassification.progression,
+    "Disguise Kit":ItemClassification.progression,
+    "Block":ItemClassification.progression,
+    "Glitchy Physics Engine":ItemClassification.progression,
+    "Knife":ItemClassification.progression,
+    "Lagswitch":ItemClassification.progression,
+    "Duplicatorange":ItemClassification.progression,
+    "Scrambler":ItemClassification.progression,
+    "Walkthrough":ItemClassification.progression,
+    "Evil Moon":ItemClassification.progression,
+    "Ultimate Freeze":ItemClassification.progression,
+    "G.A.B.E.G.G":ItemClassification.progression,
+    "Toppat Box":ItemClassification.progression,
+    "Prop":ItemClassification.progression,
+    "Magic Hat":ItemClassification.progression,
+    "Pinchers":ItemClassification.progression,
+    "Free Transform":ItemClassification.progression,
+    "Infini3":ItemClassification.progression,
+    "LeafMode":ItemClassification.progression,
+    "SuccPak":ItemClassification.progression,
+    "Woolooloo":ItemClassification.progression,
+    "Cluster Charge":ItemClassification.progression,
+    "Cheap Fighting Combo":ItemClassification.progression,
+    "Self Destruct":ItemClassification.progression,
+    "Ocarina":ItemClassification.progression,
+    "Trash Ball":ItemClassification.progression,
+    "Air Cannon":ItemClassification.progression,
+    "Warp Beam":ItemClassification.progression,
+    "Hot Knife":ItemClassification.progression,
+    "Super Accurate Laser Shot":ItemClassification.progression,
+    "Luxury Escape Pod":ItemClassification.progression,
+    "Normal Escape Pod":ItemClassification.progression,
+    "Damaged Escape Pod":ItemClassification.progression,
+    "Helicopter Hat":ItemClassification.progression,
+    "Toppy":ItemClassification.progression,
+    "Mind Crystal":ItemClassification.progression,
+    "Good Gents Doc":ItemClassification.progression,
+    "Midnight Surprise Doc":ItemClassification.progression,
+    "Deuces! Doc":ItemClassification.progression,
+    "Fulton":ItemClassification.progression,
+    "Purse of Holding":ItemClassification.progression,
+    "Shell Bounce":ItemClassification.progression,
+    "Needle":ItemClassification.progression,
+    "Wombo Combo":ItemClassification.progression,
+    "Blade Forme":ItemClassification.progression,
+    "Spirit Forme":ItemClassification.progression,
+    "Gun Forme":ItemClassification.progression,
+    "Baseball Bat":ItemClassification.progression,
+    "Y-Type Move":ItemClassification.progression,
+    "Staple":ItemClassification.progression,
+    "Relentless Bounty Hunter Timeline Unlock":ItemClassification.progression,
+    "Government Supported Private Investigator Timeline Unlock":ItemClassification.progression,
+    "Rapidly Promoted Executive Timeline Unlock":ItemClassification.progression,
+    "Pure Blooded Thief Timeline Unlock":ItemClassification.progression,
+    "Presumed Dead Timeline Unlock":ItemClassification.progression,
+    "International Rescue Operative Timeline Unlock":ItemClassification.progression,
+    "The Betrayed Timeline Unlock":ItemClassification.progression,
+    "Ghost Inmate Timeline Unlock":ItemClassification.progression,
+    "Convict Allies Timeline Unlock":ItemClassification.progression
 }
 
 
@@ -353,7 +721,7 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Money Bag Disguise"))
         
 
-    if use_BtB(world) or use_EtP(world) or use_StD(world) or use_ItA(world):
+    if use_BtB(world) or use_EtP(world) or use_StD(world) or use_ItA(world) or use_FtC(world) or use_CtM(world):
         teleporter_item = world.create_item("Teleporter") 
         if world.options.Teleporter_Start == 1:
             world.push_precollected(teleporter_item)
@@ -368,9 +736,7 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Drill"))
         itempool.append(world.create_item("Belt of Grenades"))
         itempool.append(world.create_item("Chair"))
-        itempool.append(world.create_item("Rope Launcher"))
         itempool.append(world.create_item("Plungers"))
-        itempool.append(world.create_item("JetPack"))
         itempool.append(world.create_item("Opacitator"))
         itempool.append(world.create_item("Attorney's Badge"))
         itempool.append(world.create_item("Floor Plans of Bank"))
@@ -383,12 +749,19 @@ def create_all_items(world: HenryStickminWorld) -> None:
             else:
                 itempool.append(etp_item)
 
+    if use_EtP(world) or use_CtM(world):
+        itempool.append(world.create_item("JetPack"))
+        itempool.append(world.create_item("Rope Launcher"))
+
 
     if use_EtP(world) or use_StD(world):
         itempool.append(world.create_item("Crowbar"))
 
-    if use_EtP(world) or use_ItA(world):
+    if use_EtP(world) or use_ItA(world) or use_FtC(world) or use_CtM(world):
         itempool.append(world.create_item("Rocket Launcher"))
+
+    
+    if use_EtP(world) or use_ItA(world) or use_FtC(world) or use_CtM(world):
         itempool.append(world.create_item("Parachute"))
     
     if use_StD(world):        
@@ -414,8 +787,6 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Wire"))
         itempool.append(world.create_item("Wormhole Rifle"))
         itempool.append(world.create_item("Laser Cutter"))
-        itempool.append(world.create_item("Hammer"))
-        itempool.append(world.create_item("Cannon"))
         itempool.append(world.create_item("Plank"))
         itempool.append(world.create_item("Cheese"))
         itempool.append(world.create_item("Rifle"))
@@ -426,7 +797,6 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Goodball"))
         itempool.append(world.create_item("Mushroom"))
         itempool.append(world.create_item("Division By Zero"))
-        itempool.append(world.create_item("Nuclear Bomb"))
         itempool.append(world.create_item("Giant CCC Robot"))
         if world.options.StD != 3: 
             std_item = world.create_item("Stealing The Diamond")
@@ -435,16 +805,19 @@ def create_all_items(world: HenryStickminWorld) -> None:
             else:
                 itempool.append(std_item)
     
+    if use_StD(world) or use_CtM(world):
+        itempool.append(world.create_item("Hammer"))
+        itempool.append(world.create_item("Cannon"))
+        itempool.append(world.create_item("Nuclear Bomb"))
+    
     if use_ItA(world):
         itempool.append(world.create_item("Earpiece"))
         itempool.append(world.create_item("Cannon Ball"))
         itempool.append(world.create_item("Sticky Hand"))
-        itempool.append(world.create_item("Grapple Gun"))
         itempool.append(world.create_item("Ball 'n Chain"))
         itempool.append(world.create_item("Zero-Point Energy"))
         itempool.append(world.create_item("Joy Buzzer"))
         itempool.append(world.create_item("Expanding Foam"))
-        itempool.append(world.create_item("Bomb"))
         itempool.append(world.create_item("Stretch Chewies"))
         itempool.append(world.create_item("Magic Pencil"))
         itempool.append(world.create_item("Wizard Magic"))
@@ -474,11 +847,9 @@ def create_all_items(world: HenryStickminWorld) -> None:
         itempool.append(world.create_item("Dirk"))
         itempool.append(world.create_item("Yo-Yo"))
         itempool.append(world.create_item("Multi bottle rocket"))
-        itempool.append(world.create_item("Chainsaw"))
         itempool.append(world.create_item("Glider"))
         itempool.append(world.create_item("JetBoots"))
         itempool.append(world.create_item("Beef Up"))
-        itempool.append(world.create_item("Tank"))
         itempool.append(world.create_item("Missile"))
         itempool.append(world.create_item("Dummies"))
         itempool.append(world.create_item("C4"))
@@ -510,6 +881,237 @@ def create_all_items(world: HenryStickminWorld) -> None:
                 world.push_precollected(ita_item)
             else:
                 itempool.append(ita_item)
+        
+    if use_CtM(world) or use_ItA(world):
+        itempool.append(world.create_item("Grapple Gun"))
+        itempool.append(world.create_item("Bomb"))
+        itempool.append(world.create_item("Tank"))
+        itempool.append(world.create_item("Chainsaw"))
+    
+    if (use_FtC(world)):
+        itempool.append(world.create_item("Sonic Pulse"))
+        itempool.append(world.create_item("Cookie"))
+        itempool.append(world.create_item("Laser Plane"))
+        itempool.append(world.create_item("Bubble Shield"))
+        itempool.append(world.create_item("Earthbending"))
+        itempool.append(world.create_item("Flash"))
+        itempool.append(world.create_item("Mini Helicopter"))
+        itempool.append(world.create_item("Undercover Agent"))
+        itempool.append(world.create_item("Neurotoxin"))
+        itempool.append(world.create_item("Drill Pod"))
+        itempool.append(world.create_item("Slingshot"))
+        itempool.append(world.create_item("Magnet"))
+        itempool.append(world.create_item("Sick Ride"))
+        itempool.append(world.create_item("Speed Shoes"))
+        itempool.append(world.create_item("Tool Gun"))
+        itempool.append(world.create_item("Item Box"))
+        itempool.append(world.create_item("Wall Truck Keys"))
+        itempool.append(world.create_item("Sandwich"))
+        itempool.append(world.create_item("Snowman Costume"))
+        itempool.append(world.create_item("Pistol"))
+        itempool.append(world.create_item("Warpstar"))
+        itempool.append(world.create_item("Airbag"))
+        itempool.append(world.create_item("Whoopee Cushion"))
+        itempool.append(world.create_item("Command Melody"))
+        itempool.append(world.create_item("Power Jump"))
+        itempool.append(world.create_item("Longshot"))
+        itempool.append(world.create_item("Spring"))
+        itempool.append(world.create_item("Balloon"))
+        itempool.append(world.create_item("Helium"))
+        itempool.append(world.create_item("Plunger Boots"))
+        itempool.append(world.create_item("Cardboard Box"))
+        itempool.append(world.create_item("Super Leaf"))
+        itempool.append(world.create_item("Shadozer"))
+        itempool.append(world.create_item("S.S. Annie"))
+        itempool.append(world.create_item("Dinghy"))
+        itempool.append(world.create_item("Rocket"))
+        itempool.append(world.create_item("Trenchcoat"))
+        itempool.append(world.create_item("Bounce Bros"))
+        itempool.append(world.create_item("GraviToR v2.0"))
+        itempool.append(world.create_item("Grenade"))
+        itempool.append(world.create_item("Crossbow"))
+        itempool.append(world.create_item("Taser"))
+        itempool.append(world.create_item("The Wall Hat"))
+        itempool.append(world.create_item("Adrenaline"))
+        itempool.append(world.create_item("The KNEE"))
+        itempool.append(world.create_item("Motercycle"))
+        if (not use_ItA(world) or world.options.FtCPhoneAFriendMode == 1):
+            itempool.append(world.create_item("Charles's Phone Number"))
+            itempool.append(world.create_item("Reginald's Phone Number"))
+            
+        if world.options.FtC != 3: 
+            ftc_item = world.create_item("Fleeing The Complex")
+            if world.options.FtC == 1:
+                world.push_precollected(ftc_item)
+            else:
+                itempool.append(ftc_item)
+
+    if use_FtC(world) or use_CtM(world):
+        itempool.append(world.create_item("Sniper Rifle"))
+        itempool.append(world.create_item("Rope"))
+        itempool.append(world.create_item("Sword"))
+        itempool.append(world.create_item("The Force"))
+    
+    if use_CtM(world):
+        itempool.append(world.create_item("Super Punch"))
+        itempool.append(world.create_item("Wrist Strapped Grapple Hook"))
+        itempool.append(world.create_item("Very Accurate Targetting System"))
+        itempool.append(world.create_item("Mounted Gun"))
+        itempool.append(world.create_item("Helicopter"))
+        itempool.append(world.create_item("Flute"))
+        itempool.append(world.create_item("Revolver"))
+        itempool.append(world.create_item("Boomerang"))
+        itempool.append(world.create_item("Summon"))
+        itempool.append(world.create_item("Stylish Moves"))
+        itempool.append(world.create_item("Dual Tech"))
+        itempool.append(world.create_item("G-Inverter"))
+        itempool.append(world.create_item("Cloud"))
+        itempool.append(world.create_item("Thunder II"))
+        itempool.append(world.create_item("Lockpick"))
+        itempool.append(world.create_item("Metal Hat"))
+        itempool.append(world.create_item("Melt Ray"))
+        itempool.append(world.create_item("Big Sword"))
+        itempool.append(world.create_item("Underbarrel Grenade Launcher"))
+        itempool.append(world.create_item("Pew Pew Gun"))
+        itempool.append(world.create_item("Harden"))
+        itempool.append(world.create_item("Nano-Suit"))
+        itempool.append(world.create_item("Max Gravity Boots"))
+        itempool.append(world.create_item("Nano-Suit Missiles"))
+        itempool.append(world.create_item("Positron Reflector"))
+        itempool.append(world.create_item("Communications Satellite"))
+        itempool.append(world.create_item("Backwards Satellite"))
+        itempool.append(world.create_item("Offsite Drop Pod"))
+        itempool.append(world.create_item("Drawing"))
+        itempool.append(world.create_item("Cupcake"))
+        itempool.append(world.create_item("JetPod"))
+        itempool.append(world.create_item("Trapeze"))
+        itempool.append(world.create_item("Invisible Bridge"))
+        itempool.append(world.create_item("TV Broadcast"))
+        itempool.append(world.create_item("Subsonic Wave"))
+        itempool.append(world.create_item("Remote Toppat"))
+        itempool.append(world.create_item("Wrench"))
+        itempool.append(world.create_item("Red Herring"))
+        itempool.append(world.create_item("Swapper"))
+        itempool.append(world.create_item("Painting Portal"))
+        itempool.append(world.create_item("Bug Juice"))
+        itempool.append(world.create_item("Sleep Dart"))
+        itempool.append(world.create_item("Horn"))
+        itempool.append(world.create_item("IR Sniper"))
+        itempool.append(world.create_item("Umbrella Glider"))
+        itempool.append(world.create_item("Wings"))
+        itempool.append(world.create_item("Dirt Blocks"))
+        itempool.append(world.create_item("Barrel"))
+        itempool.append(world.create_item("Human Cannon"))
+        itempool.append(world.create_item("Net Launcher"))
+        itempool.append(world.create_item("Downgrader"))
+        itempool.append(world.create_item("Fusion Earings"))
+        itempool.append(world.create_item("Scooter Drill"))
+        itempool.append(world.create_item("Spiked Wheels"))
+        itempool.append(world.create_item("Battering Ram"))
+        itempool.append(world.create_item("Mosquito Mode"))
+        itempool.append(world.create_item("Light Speed"))
+        itempool.append(world.create_item("Bridge"))
+        itempool.append(world.create_item("Catapult"))
+        itempool.append(world.create_item("Pole Vault Stick"))
+        itempool.append(world.create_item("Wooden Ramp"))
+        itempool.append(world.create_item("Paper Rocket"))
+        itempool.append(world.create_item("SMASH"))
+        itempool.append(world.create_item("Chance Dice"))
+        itempool.append(world.create_item("Norwegian Emerald"))
+        itempool.append(world.create_item("Rah Doh FOO"))
+        itempool.append(world.create_item("Save States"))
+        itempool.append(world.create_item("Grow 'n Shrink"))
+        itempool.append(world.create_item("Mirror"))
+        itempool.append(world.create_item("Train Car Spring"))
+        itempool.append(world.create_item("Inflatable Raft"))
+        itempool.append(world.create_item("Controller"))
+        itempool.append(world.create_item("Time Machine"))
+        itempool.append(world.create_item("CorrupTick"))
+        itempool.append(world.create_item("Disguise Kit"))
+        itempool.append(world.create_item("Block"))
+        itempool.append(world.create_item("Glitchy Physics Engine"))
+        itempool.append(world.create_item("Knife"))
+        itempool.append(world.create_item("Lagswitch"))
+        itempool.append(world.create_item("Duplicatorange"))
+        itempool.append(world.create_item("Scrambler"))
+        itempool.append(world.create_item("Walkthrough"))
+        itempool.append(world.create_item("Evil Moon"))
+        itempool.append(world.create_item("Ultimate Freeze"))
+        itempool.append(world.create_item("G.A.B.E.G.G"))
+        itempool.append(world.create_item("Toppat Box"))
+        itempool.append(world.create_item("Prop"))
+        itempool.append(world.create_item("Magic Hat"))
+        itempool.append(world.create_item("Pinchers"))
+        itempool.append(world.create_item("Free Transform"))
+        itempool.append(world.create_item("Infini3"))
+        itempool.append(world.create_item("LeafMode"))
+        itempool.append(world.create_item("SuccPak"))
+        itempool.append(world.create_item("Woolooloo"))
+        itempool.append(world.create_item("Cluster Charge"))
+        itempool.append(world.create_item("Cheap Fighting Combo"))
+        itempool.append(world.create_item("Self Destruct"))
+        itempool.append(world.create_item("Ocarina"))
+        itempool.append(world.create_item("Trash Ball"))
+        itempool.append(world.create_item("Air Cannon"))
+        itempool.append(world.create_item("Warp Beam"))
+        itempool.append(world.create_item("Hot Knife"))
+        itempool.append(world.create_item("Super Accurate Laser Shot"))
+        itempool.append(world.create_item("Luxury Escape Pod"))
+        itempool.append(world.create_item("Normal Escape Pod"))
+        itempool.append(world.create_item("Damaged Escape Pod"))
+        itempool.append(world.create_item("Helicopter Hat"))
+        itempool.append(world.create_item("Toppy"))
+        itempool.append(world.create_item("Mind Crystal"))
+        itempool.append(world.create_item("Good Gents Doc"))
+        itempool.append(world.create_item("Midnight Surprise Doc"))
+        itempool.append(world.create_item("Deuces! Doc"))
+        itempool.append(world.create_item("Fulton"))
+        itempool.append(world.create_item("Purse of Holding"))
+        itempool.append(world.create_item("Shell Bounce"))
+        itempool.append(world.create_item("Needle"))
+        itempool.append(world.create_item("Wombo Combo"))
+        itempool.append(world.create_item("Blade Forme"))
+        itempool.append(world.create_item("Spirit Forme"))
+        itempool.append(world.create_item("Gun Forme"))
+        itempool.append(world.create_item("Baseball Bat"))
+        itempool.append(world.create_item("Y-Type Move"))
+        itempool.append(world.create_item("Staple"))
+
+        if world.options.CtM != 3: 
+            ctm_item = world.create_item("Completing The Mission")
+            if world.options.CtM == 1:
+                world.push_precollected(ctm_item)
+            else:
+                itempool.append(ctm_item)
+        
+        if world.options.CtMTimelineUnlockMode == world.options.CtMTimelineUnlockMode.option_open_world:
+            world.push_precollected(world.create_item("Relentless Bounty Hunter Timeline Unlock"))
+            world.push_precollected(world.create_item("Government Supported Private Investigator Timeline Unlock"))
+            world.push_precollected(world.create_item("Rapidly Promoted Executive Timeline Unlock"))
+            world.push_precollected(world.create_item("Pure Blooded Thief Timeline Unlock"))
+            world.push_precollected(world.create_item("Presumed Dead Timeline Unlock"))
+            world.push_precollected(world.create_item("International Rescue Operative Timeline Unlock"))
+            world.push_precollected(world.create_item("The Betrayed Timeline Unlock"))
+            world.push_precollected(world.create_item("Ghost Inmate Timeline Unlock"))
+            world.push_precollected(world.create_item("Convict Allies Timeline Unlock"))
+            
+        else:
+            if world.options.CtMTimelineUnlockMode != 0 or not use_ItA(world):
+                itempool.append(world.create_item("Relentless Bounty Hunter Timeline Unlock"))
+                itempool.append(world.create_item("Government Supported Private Investigator Timeline Unlock"))
+                itempool.append(world.create_item("Rapidly Promoted Executive Timeline Unlock"))
+                itempool.append(world.create_item("Pure Blooded Thief Timeline Unlock"))
+
+            if world.options.CtMTimelineUnlockMode != 0 or not use_CtM(world):
+                itempool.append(world.create_item("Presumed Dead Timeline Unlock"))
+                itempool.append(world.create_item("International Rescue Operative Timeline Unlock"))
+                itempool.append(world.create_item("The Betrayed Timeline Unlock"))
+                itempool.append(world.create_item("Ghost Inmate Timeline Unlock"))
+                itempool.append(world.create_item("Convict Allies Timeline Unlock"))
+
+
+
+
 
     number_of_items = len(itempool)
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))

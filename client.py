@@ -25,6 +25,7 @@ class HenryCommandProcessor(ClientCommandProcessor):
     
     def _cmd_deathlink(self):
         """Turn on or off deathlink, nothing happens to you when your friends die so feel free to turn this on if you hate them"""
+        logger.info(f"Deathlink set to " + str(not self.ctx.deathlink))
         self.ctx.deathlink = not self.ctx.deathlink
 
 class HenryContext(CommonContext):
@@ -34,11 +35,13 @@ class HenryContext(CommonContext):
     items_handling = 0b111
     henryslotdata = None
     deathlink = False
+    all_known_items = []
 
     def on_package(self, cmd: str, args: dict):
         if cmd == "Connected":
             self.henryslotdata = args['slot_data']
-            
+            self.locations_checked.update(args['checked_locations'])
+
         elif cmd == 'ReceivedItems':
             update_henry_input(self,args['items'])
 
@@ -116,18 +119,32 @@ def create_comunication_files(ctx: HenryContext):
 
 
 async def check_henry_output(ctx):
-    henryOutPath = os.path.join(ctx.save_path,"archipelagoOut.sav")
-    with open(henryOutPath, "r+", encoding="utf-8") as f:
-        data = f.read().strip()
-        f.seek(0)
-        f.truncate()
+    path = os.path.join(ctx.save_path, "archipelagoOut.sav")
+    data = ""
+
+    for attempt in range(5):
+        try:
+            with open(path, "r+", encoding="utf-8") as f:
+                data = f.read().strip()
+
+                if data:
+                    f.seek(0)
+                    f.truncate()
+
+            break
+
+        except PermissionError:
+            if attempt == 4:
+                raise
+            await asyncio.sleep(0.1)
 
     values = data.split(",") if data else []
-    if (values):
-        await on_locations_checked(ctx,values)
+    if values:
+        await on_locations_checked(ctx, values)
 
 async def on_locations_checked(ctx, locations):
     locIds = henry_name_to_arc_id(locations)
+    ctx.locations_checked.update(locIds)
 
     await ctx.check_locations(locIds)
 
@@ -151,14 +168,70 @@ def add_vanila_progression_items(ctx,henry_item_names):
 
     if (found_StD_rank(ctx) and ctx.henryslotdata['ItA'] == 3):
         final_item_names.append("Infiltraiting The Airship")
+
+    if (found_ItA_rank(ctx) and ctx.henryslotdata['FtC'] == 3):
+        final_item_names.append("Fleeing The Complex")
+
+    if (found_FtC_rank(ctx) and ctx.henryslotdata['CtM'] == 3):
+        final_item_names.append("Completing The Mission")
     
     return final_item_names
 
+def add_phone_a_friend_items(ctx,henry_item_names):
+    final_item_names = henry_item_names
+    if ctx.henryslotdata['ItA'] != 0 and ctx.henryslotdata['FtCPhoneAFriendMode'] == 0:
+        if (found_Charles_rank(ctx)):
+            final_item_names.append("Charles's Phone Number")
+
+        if (found_Reginald_rank(ctx)):
+            final_item_names.append("Reginald's Phone Number")
+        
+    return final_item_names
+
+
+def add_timeline_items(ctx,henry_item_names):
+    final_item_names = henry_item_names
+    
+    if ctx.henryslotdata['ItA'] != 0 and ctx.henryslotdata['CtMTimelineUnlockMode'] == 0:
+        if LOCATION_NAME_TO_ID["ItA: Relentlesss Bounty Hunter"] in get_location_ids(ctx):
+            final_item_names.append("Relentless Bounty Hunter Timeline Unlock")
+
+        if LOCATION_NAME_TO_ID["ItA: Government Supported Private Investigator"] in get_location_ids(ctx):
+            final_item_names.append("Government Supported Private Investigator Timeline Unlock")
+
+        if LOCATION_NAME_TO_ID["ItA: Rapidly Promoted Executive"] in get_location_ids(ctx):
+            final_item_names.append("Rapidly Promoted Executive Timeline Unlock")
+        
+        if LOCATION_NAME_TO_ID["ItA: Pure Blooded Thief"] in get_location_ids(ctx):
+            final_item_names.append("Pure Blooded Thief Timeline Unlock")
+
+    if ctx.henryslotdata['FtC'] != 0 and ctx.henryslotdata['CtMTimelineUnlockMode'] == 0:
+        if LOCATION_NAME_TO_ID["FtC: Ghost Inmate"] in get_location_ids(ctx):
+            final_item_names.append("Ghost Inmate Timeline Unlock")
+
+        if LOCATION_NAME_TO_ID["FtC: Presumed Dead"] in get_location_ids(ctx):
+            final_item_names.append("Presumed Dead Timeline Unlock")
+
+        if LOCATION_NAME_TO_ID["FtC: The Betrayed"] in get_location_ids(ctx):
+            final_item_names.append("The Betrayed Timeline Unlock")
+        
+        if LOCATION_NAME_TO_ID["FtC: Convict Allies"] in get_location_ids(ctx):
+            final_item_names.append("Convict Allies Timeline Unlock")
+
+        if LOCATION_NAME_TO_ID["FtC: International Rescue Operative"] in get_location_ids(ctx):
+            final_item_names.append("International Rescue Operative Timeline Unlock")
+    
+
+    return final_item_names
+
+
 
 def update_henry_input(ctx,new_items):
-        ctx.locations_checked.update(new_items)
-        henry_item_names = arc_id_to_henry_input_name(ctx.locations_checked)
+        ctx.all_known_items.extend(new_items)
+        henry_item_names = arc_id_to_henry_input_name(ctx.all_known_items)
         henry_item_names = add_vanila_progression_items(ctx,henry_item_names)
+        henry_item_names = add_phone_a_friend_items(ctx,henry_item_names)
+        henry_item_names = add_timeline_items(ctx,henry_item_names)
         send_items_to_henry(ctx, henry_item_names)
 
 

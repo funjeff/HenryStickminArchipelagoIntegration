@@ -53,5 +53,5 @@ class HenryStickminWorld(World):
 
     def fill_slot_data(self) -> Mapping[str, Any]:
         return self.options.as_dict(
-            "BtB", "EtP","StD","ItA","Goal","Required_Ranks"
+            "BtB", "EtP","StD","ItA","FtC","CtM","FtCPhoneAFriendMode","CtMTimelineUnlockMode","Goal","Required_Ranks"
         )
